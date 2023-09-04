@@ -6,12 +6,3 @@ export const Root = styled.div`
   flex-direction: column;
   align-items: center;
 `;
-
-export const Title = styled.div`
-display: flex;
-width: 217px;
-height: 60px;
-flex-direction: column;
-justify-content: center;
-flex-shrink: 0;
-`;

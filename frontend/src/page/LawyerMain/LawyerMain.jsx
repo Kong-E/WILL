@@ -1,9 +1,9 @@
 import { Root } from "./styled";
 
-export const SearchResultFail = () => {
+export const LawyerMain = () => {
   return (
     <Root>
-SearchResult
+      로그인
     </Root>
   );
 };

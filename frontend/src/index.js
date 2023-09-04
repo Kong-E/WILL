@@ -7,13 +7,18 @@ import {
   Home,
   Intro,
   Searching,
-  SearchResultFail,
-  SearchResultSuccess1,
-  SearchResultSuccess2,
-  SearchResultSuccess3,
+  SearchResult,
   Writing1,
   Writing2,
+  Faq,
+  Login,
+  Join,
+  MyPage,
+  LawyerMain,
+  LawyerReview,
+  LawyerProfile,
 } from "./page";
+
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -25,12 +30,16 @@ root.render(
             <Route index element={<Home />} />
             <Route path="/intro" element={<Intro />} />
             <Route path="/searching" element={<Searching />} />
-            <Route path="/searchResultFail" element={<SearchResultFail />} />
-            <Route path="/searchResultSuccess1" element={<SearchResultSuccess1 />} />
-            <Route path="/searchResultSuccess2" element={<SearchResultSuccess2 />} />
-            <Route path="/searchResultSuccess3" element={<SearchResultSuccess3 />} />
+            <Route path="/searchResult" element={<SearchResult />} />
             <Route path="/writing1" element={<Writing1 />} />
             <Route path="/writing2" element={<Writing2 />} />
+            <Route path="/faq" element={<Faq />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/join" element={<Join />} />
+            <Route path="/myPage" element={<MyPage />} />
+            <Route path="/lawyerMain" element={<LawyerMain />} />
+            <Route path="/lawyerReview" element={<LawyerReview />} />
+            <Route path="/lawyerProfile" element={<LawyerProfile />} />
           </Route>
         </Routes>
       </BrowserRouter>

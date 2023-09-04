@@ -1,9 +1,9 @@
 import { Root } from "./styled";
 
-export const SearchResultSuccess1 = () => {
+export const Join = () => {
   return (
     <Root>
-SearchResult
+      로그인
     </Root>
   );
 };
