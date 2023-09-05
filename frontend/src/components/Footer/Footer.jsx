@@ -3,7 +3,7 @@ import styles from "./Footer.module.css";
 
 export const Footer = () => {
   return (
-    <root className={styles.root}>
+    <div className={styles.root}>
       <footer className={styles.footer}>
         <p
           className={styles.text}
@@ -30,6 +30,6 @@ export const Footer = () => {
           copyright © 별세팀
         </p>
       </footer>
-    </root>
+    </div>
   );
 };
