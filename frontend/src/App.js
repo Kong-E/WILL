@@ -1,7 +1,6 @@
 import React from 'react';
 import GlobalStyle from './GlobalStyle';
-import { BrowserRouter, Route, Routes, redirect } from 'react-router-dom';
-import { Layout } from './Routes/Layout';
+import { BrowserRouter, Navigate, Route, Routes, redirect } from 'react-router-dom';
 import { useRecoilValue } from 'recoil';
 import {
   Home,
@@ -19,6 +18,7 @@ import {
   LawyerProfile,
 } from './page';
 import { LoginState } from 'stores/login-store';
+import { Layout } from './Routes/Layout';
 
 const App = () => {
   const isLogin = useRecoilValue(LoginState);
@@ -35,9 +35,9 @@ const App = () => {
           <Route path="/writing1" element={<Writing1 />} />
           <Route path="/writing2" element={<Writing2 />} />
           <Route path="/faq" element={<Faq />} />
-          <Route path="/login" element={isLogin ? redirect('/myPage') : <Login />} />
-          <Route path="/join" element={isLogin ? redirect('/myPage') : <Join />} />
-          <Route path="/myPage" element={isLogin ? <MyPage /> : redirect('/login')} />
+          <Route path="/login" element={isLogin ? <Navigate to="/mypage" /> : <Login />} />
+          <Route path="/join" element={isLogin ? <Navigate to="/mypage" /> : <Join />} />
+          <Route path="/mypage" element={isLogin ? <MyPage /> : <Navigate to="/login" />} />
           <Route path="/lawyerMain" element={<LawyerMain />} />
           <Route path="/lawyerReview" element={<LawyerReview />} />
           <Route path="/lawyerProfile" element={<LawyerProfile />} />
