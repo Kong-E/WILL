@@ -100,17 +100,15 @@ export const Nav = () => {
         <p className={styles.text}>유언장 찾기</p>
         <p className={styles.text}>변호사 알아보기</p>
         <p className={styles.text}>법률 문의 게시판</p>
-        <button className={styles.button}>
-          {loginState ? (
-            <p className={styles.login_text} onClick={handleLogout}>
-              로그아웃
-            </p>
-          ) : (
-            <p className={styles.login_text} onClick={() => navigate('/login')}>
-              로그인/회원가입
-            </p>
-          )}
-        </button>
+        {loginState ? (
+          <button className={styles.button} onClick={handleLogout}>
+            <p className={styles.login_text}>로그아웃</p>
+          </button>
+        ) : (
+          <button className={styles.button} onClick={() => navigate('/login')}>
+            <p className={styles.login_text}>로그인/회원가입</p>
+          </button>
+        )}
       </div>
     </header>
   );
