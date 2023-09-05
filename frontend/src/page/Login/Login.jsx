@@ -74,7 +74,7 @@ export const Login = () => {
         <button type="submit" onClick={handleLogin}>
           Sign In
         </button>
-        <button type="button" onClick={() => navigate('/signup')}>
+        <button type="button" onClick={() => navigate('/join')}>
           Sign Up
         </button>
       </form>
