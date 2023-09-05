@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import styles from './Login.module.css';
 import { useNavigate } from 'react-router-dom';
 import instance from '../../api/axios';
 import { LoginState, UserState } from '../../stores/login-store';
@@ -65,16 +66,18 @@ export const Login = () => {
   return (
     <div>
       <h1>Login</h1>
-      <label htmlFor="email">Email</label>
-      <input type="email" id="email" value={email} onChange={handleEmailChange} />
-      <label htmlFor="password">Password</label>
-      <input type="password" id="password" value={password} onChange={handlePasswordChange} />
-      <button type="submit" onClick={handleLogin}>
-        Login
-      </button>
-      <button type="button" onClick={() => navigate('/signup')}>
-        Register
-      </button>
+      <form className={styles.form}>
+        <label htmlFor="email">Email</label>
+        <input type="email" id="email" value={email} onChange={handleEmailChange} />
+        <label htmlFor="password">Password</label>
+        <input type="password" id="password" value={password} onChange={handlePasswordChange} />
+        <button type="submit" onClick={handleLogin}>
+          Sign In
+        </button>
+        <button type="button" onClick={() => navigate('/signup')}>
+          Sign Up
+        </button>
+      </form>
     </div>
   );
 };

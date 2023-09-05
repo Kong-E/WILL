@@ -1,4 +1,4 @@
-.root{
+.root {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -7,18 +7,18 @@
   height: 100vh;
 }
 
-.textcontainer{
+.textcontainer {
   height: 47px;
   width: 100%;
   display: flex;
-  justify-content: center;  /* 수평 가운데 정렬 */
+  justify-content: center; /* 수평 가운데 정렬 */
   text-align: center;
-  margin-bottom: 150px; 
+  margin-bottom: 150px;
 }
 
-.text{
+.text {
   color: #2e2e30;
-  font-family: "Noto Sans KR";
+  font-family: 'Noto Sans KR';
   font-size: 32px;
   font-weight: 1100;
   left: 0;
@@ -27,7 +27,7 @@
   text-align: center;
   top: 0;
 }
- 
+
 .box {
   background-color: #ffffff;
   border: 1px solid;
@@ -38,13 +38,12 @@
   left: 0;
   top: 0;
   width: 1047px;
-  margin-bottom: 100px; 
+  margin-bottom: 100px;
   display: flex; /* 내부 요소들을 가로로 배치하기 위해 Flexbox를 활성화합니다. */
   flex-direction: column; /* 요소들을 세로로 쌓습니다. */
   justify-content: center; /* 세로 방향으로 가운데 정렬합니다. */
   align-items: center; /* 가로 방향으로 가운데 정렬합니다. */
 }
-
 
 .box2 {
   height: 112px;
@@ -124,20 +123,20 @@
 }
 
 .box .text {
-  color:#898394;
-  font-family: "Noto Sans CJK KR-Medium", Helvetica;
+  color: #898394;
+  font-family: 'Noto Sans CJK KR-Medium', Helvetica;
   font-size: 24px;
   font-weight: 500;
   letter-spacing: 0;
   line-height: normal;
   position: absolute;
   text-align: center;
-  top:13px;
+  top: 13px;
 }
 
 .box .text-2 {
-  color:#898394;
-  font-family: "Noto Sans CJK KR-Medium", Helvetica;
+  color: #898394;
+  font-family: 'Noto Sans CJK KR-Medium', Helvetica;
   font-size: 24px;
   font-weight: 500;
   left: -10px;
@@ -148,25 +147,23 @@
   top: 76px;
 }
 
-
 .tooltip-container {
   align-items: center;
   display: inline-flex;
   flex-direction: column;
   position: relative;
-  left:209px;
-  top:10px;
+  left: 209px;
+  top: 10px;
 }
 
 .tooltip-button {
-  width: 24px; 
-  height: 24px; 
+  width: 24px;
+  height: 24px;
   border: none;
   border-radius: 50%;
   cursor: pointer;
   display: block;
 }
-
 
 .tooltip-text {
   display: none;
@@ -182,10 +179,9 @@
   transform: translateX(-50%);
 
   align-items: flex-start;
-  font-family: "Noto Sans CJK KR-Regular", Helvetica;
+  font-family: 'Noto Sans CJK KR-Regular', Helvetica;
   font-size: 14px;
   font-weight: 400;
-
 }
 .tooltip-text::after {
   content: '';
@@ -207,20 +203,20 @@
   justify-content: center; /* 수평 가운데 정렬 */
 }
 
-.blackbutton{
+.blackbutton {
   background-color: #1e1e1e;
   align-items: center;
   border-radius: 50px;
   gap: 10px;
   justify-content: center;
   padding: 0px 67px;
-  position: relative; 
+  position: relative;
   margin-bottom: 281px;
 }
 
 .blackbutton-text {
   color: #fff;
-  font-family: "Noto Sans CJK KR-Bold", Helvetica;
+  font-family: 'Noto Sans CJK KR-Bold', Helvetica;
   font-size: 28px;
   font-weight: 700;
   letter-spacing: 0;

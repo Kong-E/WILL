@@ -16,6 +16,13 @@
   line-height: 0;
   padding: 0px 17px;
   gap: 10px;
+  cursor: pointer;
+}
+
+.login_text {
+  composes: text; /* This imports styles from .text */
+  color: #ffffff;
+  padding: 0px 17px;
 }
 
 .bannerContainer {
