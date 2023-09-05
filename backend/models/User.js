@@ -20,6 +20,10 @@ const UserSchema = new mongoose.Schema(
       type: String,
       default: '',
     },
+    hash: {
+      type: String,
+      default: '',
+    },
   },
   // 생성일(createdAt)과 수정일(updatedAt)을 자동으로 관리
   { timestamps: true },
