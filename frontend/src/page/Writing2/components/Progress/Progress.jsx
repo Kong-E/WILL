@@ -1,28 +1,16 @@
-import React, { useState } from "react";
+import React from "react";
 import styles from "./style.css";
-import { useNavigate } from "react-router";
 
-export const Writing1 = () => {
-  const [isTooltipVisible, setTooltipVisible] = useState(false);
-
-  const handleMouseEnter = () => {
-    setTooltipVisible(true);
-  };
-
-  const handleMouseLeave = () => {
-    setTooltipVisible(false);
-  };
-
-  const navigate = useNavigate();
+export const Progress = () => {
 
   return (
     <div className={styles.root}>
-      <div className="textcontainer">
+        <div className="textcontainer">
         <p
           className={styles.text}
           style={{ fontSize: "32px", marginTop: "49px" }}
         >
-          단계별 질문을 통하여, 손쉽게 유언장을 작성하세요.
+          유언장 작성하기
         </p>
       </div>
       <div className="box">
@@ -30,7 +18,6 @@ export const Writing1 = () => {
           <div className="navbar">
             <div className="group">
               <img className="line" alt="Line" src="line-1.svg" />
-
               <div className="group1">
                 <div className="overlap-group">
                   <div className="rectangle-1" />
@@ -107,37 +94,8 @@ export const Writing1 = () => {
             </div>
           </div>
         </div>
-
-
-        <div className="tooltip-container">
-          {/* 이미지 버튼 */}
-          <img
-            src="QuestionMark.svg"
-            alt="버튼 이미지"
-            className="tooltip-button"
-            onMouseEnter={handleMouseEnter}
-            onMouseLeave={handleMouseLeave}
-          />
-          {isTooltipVisible && (
-            <div className="tooltip-text">
-              작성한 내용을 바탕으로
-              <br />
-              녹음을 통해 법적효력이 있는 <br />
-              블록체인 유언장을 생성합니다.
-            </div>
-          )}
-        </div>
       </div>
-      <div className="blackbutton-container">
-        <button className="blackbutton" onClick={() => navigate("/writing2")}>
-          <p
-            className={styles.text}
-            style={{ color: "#fff", fontSize: "28px" }}
-          >
-            유언장 작성하기
-          </p>
-        </button>
       </div>
-    </div>
+
   );
 };
