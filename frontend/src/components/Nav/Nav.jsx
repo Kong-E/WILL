@@ -1,9 +1,82 @@
-import React from 'react';
+import React, { useCallback, useEffect, useMemo } from 'react';
 import styles from './Nav.module.css';
 import { useNavigate } from 'react-router-dom';
+import { useRecoilState, useSetRecoilState } from 'recoil';
+import { UserState, LoginState } from '../../stores/login-store';
 
 export const Nav = () => {
+  const [loginState, setLoginState] = useRecoilState(LoginState);
+  const setUserState = useSetRecoilState(UserState);
+  let token = useMemo(() => localStorage.getItem('token'), []);
+
   const navigate = useNavigate();
+
+  const handleLogout = () => {
+    // 로그아웃할건지 물어보기
+    if (!window.confirm('로그아웃 하시겠습니까?')) return;
+
+    // 로그아웃 로직 수행 후 LoginState atom 값을 false로 변경
+    localStorage.removeItem('token');
+    localStorage.removeItem('expirationDate');
+    setUserState({
+      _id: '',
+      username: '',
+      email: '',
+      password: '',
+      createdAt: '',
+      updatedAt: '',
+      bookmarkedQuestions: [],
+    });
+    setLoginState(false);
+  };
+
+  useEffect(() => {
+    const expirationDate = localStorage.getItem('expirationDate');
+    if (expirationDate) {
+      const currentDate = new Date().getTime();
+      const ComExpirationDate = new Date(expirationDate).getTime();
+      const timeGap = ComExpirationDate - currentDate;
+
+      if (timeGap > 0) {
+        const timeout = setTimeout(() => {
+          localStorage.removeItem('token');
+          localStorage.removeItem('expirationDate');
+          token = null;
+          setUserState({
+            _id: '',
+            username: '',
+            email: '',
+            password: '',
+            createdAt: '',
+            updatedAt: '',
+            bookmarkedQuestions: [],
+          });
+          setLoginState(false);
+        }, timeGap);
+
+        return () => {
+          clearTimeout(timeout);
+        };
+      } else {
+        localStorage.removeItem('token');
+        localStorage.removeItem('expirationDate');
+        token = null;
+        setUserState({
+          _id: '',
+          username: '',
+          email: '',
+          password: '',
+          createdAt: '',
+          updatedAt: '',
+          bookmarkedQuestions: [],
+        });
+        setLoginState(false);
+      }
+    }
+    // console.log(localStorage.getItem('token'));
+    // console.log(loginState);
+  }, [token]);
+
   return (
     <header className={styles.nav}>
       <p
@@ -28,9 +101,15 @@ export const Nav = () => {
         <p className={styles.text}>변호사 알아보기</p>
         <p className={styles.text}>법률 문의 게시판</p>
         <button className={styles.button}>
-          <p className={styles.login_text} onClick={() => navigate('/login')}>
-            로그인/회원가입
-          </p>
+          {loginState ? (
+            <p className={styles.login_text} onClick={handleLogout}>
+              로그아웃
+            </p>
+          ) : (
+            <p className={styles.login_text} onClick={() => navigate('/login')}>
+              로그인/회원가입
+            </p>
+          )}
         </button>
       </div>
     </header>
