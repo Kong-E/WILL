@@ -1,0 +1,237 @@
+.root{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+}
+
+.textcontainer{
+  height: 47px;
+  width: 100%;
+  display: flex;
+  justify-content: center;  /* 수평 가운데 정렬 */
+  text-align: center;
+  margin-bottom: 150px; 
+}
+
+.text{
+  color: #2e2e30;
+  font-family: "Noto Sans CJK KR";
+  font-size: 32px;
+  font-weight: 700;
+  left: 0;
+  letter-spacing: 0;
+  line-height: normal;
+  text-align: center;
+  top: 0;
+}
+ 
+.box {
+  background-color: #ffffff;
+  border: 1px solid;
+  border-color: #eeedf1;
+  border-radius: 35px;
+  box-shadow: 0px 0px 40px #0000000d;
+  height: 223px;
+  left: 0;
+  top: 0;
+  width: 1047px;
+  margin-bottom: 100px; 
+  display: flex; /* 내부 요소들을 가로로 배치하기 위해 Flexbox를 활성화합니다. */
+  flex-direction: column; /* 요소들을 세로로 쌓습니다. */
+  justify-content: center; /* 세로 방향으로 가운데 정렬합니다. */
+  align-items: center; /* 가로 방향으로 가운데 정렬합니다. */
+}
+
+
+.box2 {
+  height: 112px;
+  position: relative;
+  width: 851px;
+}
+
+.box .group {
+  height: 112px;
+  left: 0;
+  top: 0;
+  width: 875px;
+}
+
+.box .navbar {
+  height: 65px;
+  left: 0px;
+  position: absolute;
+  top: 0;
+  width: 812px;
+}
+
+.box .line {
+  height: 2px;
+  left: 34px;
+  position: absolute;
+  top: 23px;
+  width: 752px;
+}
+
+.box .group1 {
+  height: 65px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  display: flex; /* 내부 요소들을 가로로 배치하기 위해 Flexbox를 활성화합니다. */
+  flex-direction: column; /* 요소들을 세로로 쌓습니다. */
+  justify-content: center; /* 세로 방향으로 가운데 정렬합니다. */
+}
+
+.box .overlap-group {
+  height: 64px;
+  position: relative;
+  display: flex; /* 내부 요소들을 가로로 배치하기 위해 Flexbox를 활성화합니다. */
+  flex-direction: column; /* 요소들을 세로로 쌓습니다. */
+  justify-content: center; /* 세로 방향으로 가운데 정렬합니다. */
+  align-items: center;
+}
+
+.box .rectangle-1 {
+  background-color: #eeedf1;
+  border-radius: 7.22px;
+  height: 53px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 52px;
+}
+
+.box .polygon {
+  height: 10px;
+  left: 18px;
+  position: absolute;
+  top: 53px;
+  width: 14px;
+}
+
+.box .rectangle-2 {
+  background-color: var(--gray-100);
+  border-radius: 7.22px;
+  height: 53px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 52px;
+}
+
+.box .text {
+  color:#898394;
+  font-family: "Noto Sans CJK KR-Medium", Helvetica;
+  font-size: 24px;
+  font-weight: 500;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  text-align: center;
+  top:13px;
+}
+
+.box .text-2 {
+  color:#898394;
+  font-family: "Noto Sans CJK KR-Medium", Helvetica;
+  font-size: 24px;
+  font-weight: 500;
+  left: -10px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  text-align: center;
+  top: 76px;
+}
+
+
+.tooltip-container {
+  align-items: center;
+  display: inline-flex;
+  flex-direction: column;
+  position: relative;
+  left:209px;
+  top:10px;
+}
+
+.tooltip-button {
+  width: 24px; 
+  height: 24px; 
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  display: block;
+}
+
+
+.tooltip-text {
+  display: none;
+  position: absolute;
+  background-color: #2e2e30;
+  color: #fff;
+  padding: 10px;
+  border-radius: 10px;
+  white-space: nowrap;
+  z-index: 1;
+  top: calc(100% + 10px); /* 툴팁을 버튼 아래로 위치시킵니다. */
+  left: 50%;
+  transform: translateX(-50%);
+
+  align-items: flex-start;
+  font-family: "Noto Sans CJK KR-Regular", Helvetica;
+  font-size: 14px;
+  font-weight: 400;
+
+}
+.tooltip-text::after {
+  content: '';
+  position: absolute;
+  top: -10px; /* 꼬리를 위쪽으로 위치시킵니다. */
+  left: 50%;
+  margin-left: -6px;
+  border-width: 6px;
+  border-style: solid;
+  border-color: transparent transparent #333 transparent; /* 북쪽 방향으로 꼬리를 만듭니다. */
+}
+
+.tooltip-container:hover .tooltip-text {
+  display: block;
+}
+
+.blackbutton-container {
+  display: flex;
+  justify-content: center; /* 수평 가운데 정렬 */
+}
+
+.blackbutton{
+  background-color: #1e1e1e;
+  align-items: center;
+  border-radius: 50px;
+  gap: 10px;
+  justify-content: center;
+  padding: 0px 67px;
+  position: relative; 
+  margin-bottom: 281px;
+}
+
+.blackbutton-text {
+  color: #fff;
+  font-family: "Noto Sans CJK KR-Bold", Helvetica;
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: 0;
+  line-height: normal;
+  margin-top: -1px;
+  position: relative;
+  text-align: center;
+  width: fit-content;
+  cursor: pointer;
+}
+
+.round-button:hover {
+  background-color: #0056b3; /* 버튼에 호버 시 배경색 변경 */
+}
