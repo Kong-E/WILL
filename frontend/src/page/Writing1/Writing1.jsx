@@ -108,7 +108,7 @@ export const Writing1 = () => {
         <div className="tooltip-container">
           {/* 이미지 버튼 */}
           <img
-            src="QuestionMark.svg"
+            src="QuestionMarkFill.svg"
             alt="버튼 이미지"
             className="tooltip-button"
             onMouseEnter={handleMouseEnter}

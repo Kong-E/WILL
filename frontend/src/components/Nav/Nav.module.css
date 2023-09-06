@@ -19,6 +19,11 @@
   cursor: pointer;
 }
 
+.selected_text {
+  composes: text; /* This imports styles from .text */
+  color: #2e2e30;
+}
+
 .login_text {
   composes: text; /* This imports styles from .text */
   color: #ffffff;
