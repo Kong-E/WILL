@@ -1,0 +1,29 @@
+.container {
+  display: flex;
+}
+
+.previous_button {
+  display: grid;
+  place-items: center;
+  width: 223px;
+  height: 68px;
+  border-radius: 50px;
+  border: 1px solid #cac8ce;
+  color: #898394;
+  font-weight: 700;
+  font-size: 24px;
+  margin-right: 20.5px;
+}
+
+.next_button {
+  display: grid;
+  place-items: center;
+  width: 223px;
+  height: 68px;
+  border-radius: 50px;
+  border: 1px solid #1e1e1e;
+  background-color: #1e1e1e;
+  color: #fff;
+  font-weight: 700;
+  font-size: 24px;
+}
