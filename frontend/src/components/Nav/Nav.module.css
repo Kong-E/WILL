@@ -1,3 +1,5 @@
+
+
 .nav{
     display: flex;
     align-items: center;
@@ -7,30 +9,42 @@
     height: 95px;
 }
 
-.text{
-color: #898394;
-font-family: Noto Sans CJK KR;
-font-size: 18px;
-font-style: normal;
-font-weight: 500;
-line-height: 0;
-padding: 0px 17px;
-gap: 10px;
+.text {
+  color: #898394;
+  /* font-family: Noto Sans CJK KR; */
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 0;
+  padding: 0px 17px;
+  gap: 10px;
+  cursor: pointer;
 }
 
-.bannerContainer{
-align-items: center;
-justify-content: flex-end;
-display:inline-flex;
-margin-right:58px;
+.selected_text {
+  composes: text; /* This imports styles from .text */
+  color: #2e2e30;
 }
 
-.button{
-display: inline-flex;
-justify-content: center;
-align-items: center;
-gap: 10px;
-border-radius: 24px;
-background: #2E2E30;
-margin-left:10px;
+.login_text {
+  composes: text; /* This imports styles from .text */
+  color: #ffffff;
+  padding: 0px 17px;
+}
+
+.bannerContainer {
+  align-items: center;
+  justify-content: flex-end;
+  display: inline-flex;
+  margin-right: 58px;
+}
+
+.button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 24px;
+  background: #2e2e30;
+  margin-left: 10px;
 }
