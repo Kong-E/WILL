@@ -3,11 +3,14 @@ import styles from './Writing6.module.scss';
 import { PageNavigation } from 'components';
 import { useRecoilState} from 'recoil';
 import { selectedOptionState ,selectedOptionState2} from '../Writing2/state.js';
+import { selectedOptionState3 ,selectedOptionState4} from '../Writing3/state.js';
 
 export const Writing6 = () => {
 
   const [selectedOption, setSelectedOption] = useRecoilState(selectedOptionState);
   const [selectedOption2, setSelectedOption2] = useRecoilState(selectedOptionState2);
+  const [selectedOption3, setSelectedOption3] = useRecoilState(selectedOptionState3);
+  const [selectedOption4, setSelectedOption4] = useRecoilState(selectedOptionState4);
 
   //새로고침 했을 때도 화면에 나타나게 함
   useEffect(() => {
@@ -44,6 +47,9 @@ export const Writing6 = () => {
       <div className={styles.will_textarea}>        
         <p>선택한 옵션: {selectedOption}</p>
         <p>선택한 옵션: {selectedOption2}</p>
+        <p>선택한 옵션: {selectedOption3}</p>
+        <p>선택한 옵션: {selectedOption4}</p>
+
       </div>
       <PageNavigation nextPath="/writing7" />
       <div className={styles.date_text}>작성일자 서기 YYYY년 MM월 DD일</div>

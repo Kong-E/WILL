@@ -9,21 +9,22 @@ export const Progress = () => {
         <img className={styles.line} alt="Line" src="/images/line.svg" />
 
         <div className={styles.stepAll_container}>
-          <div className={styles.step_container}>
-            <div className={styles.numberBox} style={{ backgroundColor: "#2e2e30"}}>
-              <div className={styles.text} style={{ color: "#fff" }}>1</div>
+        <div className={styles.step_container}>
+            <div className={styles.numberBox}>
+              <div className={styles.text}>1</div>
             </div>
-            <img className={styles.polygon} alt="Polygon" src="/images/Polygon_smallBlack.svg" />
-            <div className={styles.text} style={{ color: "#2e2e30" , marginTop:"6px"}}>장례식</div>
+            <img className={styles.polygon} alt="Polygon" src="/images/Polygon_small.svg" />
+            <div className={styles.text} style={{ marginTop:"6px"}}>장례식</div>
           </div>
 
           <div className={styles.step_container}>
-            <div className={styles.numberBox}>
-              <div className={styles.text}>2</div>
+            <div className={styles.numberBox} style={{ backgroundColor: "#2e2e30"}}>
+              <div className={styles.text} style={{ color: "#fff" }}>2</div>
             </div>
-            <img className={styles.polygon} alt="Polygon" src="/images/Polygon_small.svg" />
-            <div className={styles.text} style={{ marginTop:"6px"}}>의료</div>
+            <img className={styles.polygon} alt="Polygon" src="/images/Polygon_smallBlack.svg" />
+            <div className={styles.text} style={{ color: "#2e2e30" , marginTop:"6px"}}>의료</div>
           </div>
+
 
           <div className={styles.step_container}>
             <div className={styles.numberBox}>

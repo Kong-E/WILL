@@ -1,19 +1,20 @@
-import React from 'react';
-import styles from './Writing2.module.css';
+import React, { useState } from 'react';
+import styles from './Writing3.module.css';
+import { useNavigate } from 'react-router';
 import { Progress } from './components/Progress';
-
 import { PageNavigation } from 'components';
-import { Q1 } from './components/Q1';
+import { Q3 } from './components/Q3';
 import { Q2 } from './components/Q2';
 
-export const Writing2 = () => {
+export const Writing3 = () => {
+  
   return (
     <div className={styles.root}>
       <Progress />
       <div className={styles.container}>
-        <Q1 />
+        <Q3 />
         <Q2 />
-        <PageNavigation nextPath="/writing3" />
+        <PageNavigation nextPath="/writing6" />
       </div>
     </div>
   );
