@@ -1,0 +1,1 @@
+export { Lawyer } from './Lawyer';
