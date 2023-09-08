@@ -9,6 +9,7 @@ import {
   SearchResult,
   Writing1,
   Writing2,
+  Writing3,
   Writing6,
   Faq,
   Login,
@@ -24,6 +25,7 @@ import { Layout } from './Routes/Layout';
 const App = () => {
   const isLogin = useRecoilValue(LoginState);
 
+
   return (
     <BrowserRouter>
       <GlobalStyle />
@@ -35,6 +37,7 @@ const App = () => {
           <Route path="/searchResult" element={<SearchResult />} />
           <Route path="/writing1" element={<Writing1 />} />
           <Route path="/writing2" element={<Writing2 />} />
+          <Route path="/writing3" element={<Writing3 />} />
           <Route path="/writing6" element={<Writing6 />} />
           <Route path="/faq" element={<Faq />} />
           <Route path="/login" element={isLogin ? <Navigate to="/mypage" /> : <Login />} />

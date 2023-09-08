@@ -1,8 +1,32 @@
-import React, { useState } from 'react';
+import React, { useEffect} from 'react';
 import styles from './Writing6.module.scss';
 import { PageNavigation } from 'components';
+import { useRecoilState} from 'recoil';
+import { selectedOptionState ,selectedOptionState2} from '../Writing2/state.js';
+import { selectedOptionState3 ,selectedOptionState4} from '../Writing3/state.js';
 
 export const Writing6 = () => {
+
+  const [selectedOption, setSelectedOption] = useRecoilState(selectedOptionState);
+  const [selectedOption2, setSelectedOption2] = useRecoilState(selectedOptionState2);
+  const [selectedOption3, setSelectedOption3] = useRecoilState(selectedOptionState3);
+  const [selectedOption4, setSelectedOption4] = useRecoilState(selectedOptionState4);
+
+  //새로고침 했을 때도 화면에 나타나게 함
+  useEffect(() => {
+    const storedOption = sessionStorage.getItem('selectedOption');
+    if (storedOption) {
+      // 세션 스토리지에서 옵션을 가져와 Recoil 상태에 설정
+      setSelectedOption(storedOption);
+    }
+
+      const storedOption2 = sessionStorage.getItem('selectedOption2');
+      if (storedOption2) {
+        // 세션 스토리지에서 옵션을 가져와 Recoil 상태에 설정
+        setSelectedOption2(storedOption2);
+      }
+  }, []);
+
   return (
     <div className={styles.container}>
       <div className={styles.info_container}>
@@ -20,7 +44,13 @@ export const Writing6 = () => {
         <div className={styles.record_button}>녹음 시작하기</div>
         <div className={styles.text}>녹음이 시작되면 유언장 내용을 읽어주세요.</div>
       </div>
-      <div className={styles.will_textarea}>텍스트</div>
+      <div className={styles.will_textarea}>        
+        <p>선택한 옵션: {selectedOption}</p>
+        <p>선택한 옵션: {selectedOption2}</p>
+        <p>선택한 옵션: {selectedOption3}</p>
+        <p>선택한 옵션: {selectedOption4}</p>
+
+      </div>
       <PageNavigation nextPath="/writing7" />
       <div className={styles.date_text}>작성일자 서기 YYYY년 MM월 DD일</div>
     </div>
