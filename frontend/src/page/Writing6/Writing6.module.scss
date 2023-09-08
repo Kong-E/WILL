@@ -66,10 +66,41 @@
 }
 
 .record_img {
-  width: 145px;
-  height: 145px;
+  position: relative;
+  width: 109px;
+  height: 109px;
   margin-top: 30px;
+  margin-bottom: 20px;
+  background-color: white;
+  background-image: url(../../assets/images/microphone_black.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  border: 1px solid #cac8ce;
+  border-radius: 50%;
   cursor: pointer;
+  transition: all 0.3s ease-in-out;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 3.61px solid #e6e6e6;
+  }
+
+  &.active {
+    background-color: #2e2e30;
+    background-image: url(../../assets/images/microphone.svg);
+
+    &::after {
+      border: 3.61px solid #fff;
+      opacity: 20%;
+    }
+  }
 }
 
 .record_button {
@@ -86,6 +117,12 @@
   font-weight: 500;
   line-height: normal;
   cursor: pointer;
+
+  &.active {
+    background: #2e2e30;
+    color: #fff;
+    font-weight: 400;
+  }
 }
 
 .will_textarea {
@@ -111,4 +148,12 @@
   font-weight: 400;
   line-height: normal;
   margin-top: 19px;
+}
+
+.audio {
+  margin-top: 15px;
+
+  &.active {
+    outline: none;
+  }
 }
