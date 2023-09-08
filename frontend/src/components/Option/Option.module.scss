@@ -16,17 +16,11 @@
   cursor: pointer;
   transition: all 0.2s ease-in-out;
 
-  &:hover {
+  &:hover, &.active {
     border-radius: 10px;
     border: 1px solid var(--gray-300, #cac8ce);
     background: #2e2e30;
     color: #fff;
-  }
-
-  &.active {
-    border-radius: 10px;
-    border: 1px solid var(--gray-300, #cac8ce);
-    background: #2e2e30;
-    color: #fff;
+    font-weight: 500;
   }
 }

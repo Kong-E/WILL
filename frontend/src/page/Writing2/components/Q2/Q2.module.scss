@@ -1,0 +1,103 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.q2_container {
+  display: flex;
+  flex-direction: column;
+  width: 864px;
+  margin-top: 100px;
+  margin-bottom: 100px;
+}
+
+.title {
+  color: #2e2e30;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.q2Select_container {
+  width: 864px;
+  margin-top: 40px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  /* 3개의 열을 만듭니다. */
+  gap: 30px 16px;
+}
+.selectBox {
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 241px;
+  width: 270px;
+  background-color: #ffffff;
+  border: 1px solid;
+  border-color: #cac8ce;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: background-color 0.3s, color 0.3s; /* 색상 전환 애니메이션 */
+
+  &:hover,
+  &.clicked {
+    background-color: #2e2e30;
+    border-color: #cac8ce;
+    color: #fff;
+
+    .title_text {
+      color: #fff;
+      font-weight: 500;
+    }
+
+    .content_text {
+      color: #f4f4f4;
+      font-weight: 400;
+    }
+  }
+}
+
+.title_text {
+  color: #2e2e30;
+  font-style: normal;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: normal;
+  text-align: center;
+  margin-bottom: 6px;
+}
+
+.content_text {
+  width: 145px;
+  color: #675f5f;
+  font-style: normal;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: normal;
+  text-align: center;
+  margin-top: 13px;
+  word-break: keep-all;
+}
+
+.hope_container {
+  background-color: #f4f4f4;
+  border: 1px solid;
+  border-color: #f4f4f4;
+  border-radius: 15px;
+  height: 110px;
+  position: relative;
+  width: 864px;
+  top: 30px;
+}
+
+textarea {
+  text-indent: 25px;
+  padding-top: 25px;
+  font-style: normal;
+  resize: none;
+}
