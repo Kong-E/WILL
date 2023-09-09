@@ -49,12 +49,13 @@ export const Q1 = () => {
   };
 
   const handleCommentChange = e => {
-    setComment(e.target.value);
+    const updatedComment = e.target.value;
+    setComment(updatedComment);   
     setWillState(prevWillState => ({
       ...prevWillState,
       funeral: {
         ...prevWillState.funeral,
-        note: comment, // 희망사항 업데이트
+        note: updatedComment, // 희망사항 업데이트
       },
     }));
   };
@@ -77,6 +78,7 @@ export const Q1 = () => {
             </button>
           ))}
         </div>
+        
         <textarea
           className={styles.hope_container}
           placeholder="희망사항을 남겨주세요"

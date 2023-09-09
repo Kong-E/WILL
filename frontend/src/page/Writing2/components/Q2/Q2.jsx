@@ -60,12 +60,13 @@ export const Q2 = () => {
   };
 
   const handleCommentChange = e => {
-    setComment(e.target.value);
+    const updatedComment = e.target.value;
+    setComment(updatedComment);       
     setWillState(prevWillState => ({
       ...prevWillState,
       grave: {
         ...prevWillState.grave,
-        note: comment,
+        note: updatedComment,
       },
     }));
   };

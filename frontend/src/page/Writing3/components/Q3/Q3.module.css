@@ -21,6 +21,7 @@
   line-height: normal;
 }
 
+
 .q3Select_container {
   width: 864px;
   margin-top: 40px;
@@ -28,82 +29,13 @@
   /* 가로 정렬을 위해 flexbox 사용 */
   justify-content: space-between;
   /* 요소 사이의 간격을 균등하게 설정 */
+
 }
-
-
-
-.selectBox {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background-color: #ffffff;
-  border: 1px solid;
-  border-color: #CAC8CE;
-  border-radius: 10px;
-  height: 79px;
-  width: 426px;
-  overflow: hidden;
-  color: #2e2e30;
-  /* 텍스트 색상 (기본) */
-
-  transition: background-color 0.3s, color 0.3s;
-  /* 색상 전환 애니메이션 */
-}
-
-.selectBox.clicked {
-  background-color: #2E2E30;
-  /* 클릭된 버튼의 배경색 변경 */
-  border-color: #CAC8CE;
-  /* 클릭된 버튼의 테두리 색상 변경 */
-  color: #fff !important;
-  /* 클릭된 버튼의 텍스트 색상을 흰색으로 변경 */
-}
-.content_text {
-  color: #675F5F;
-  font-style: normal;
-  font-size: 16px;
-  font-weight: 500;
-  line-height: normal;
-  text-align: center;
-}
-
-.content_text.clicked {
-  color: #F4F4F4;
-  font-style: normal;
-  font-size: 16px;
-  font-weight: 500;
-  line-height: normal;
-  text-align: center;
-}
-
-.title_text {
-  color: #2E2E30;
-  font-style: normal;
-  font-size: 16px;
-  font-weight: 700;
-  line-height: normal;
-  text-align: center;
-  margin-bottom: 5px;
-}
-
-.title_text.clicked {
-  color: #fff;
-  font-style: normal;
-  font-size: 16px;
-  font-weight: 700;
-  line-height: normal;
-  text-align: center;
-  margin-bottom: 5px;
-}
-
 
 .banner_container {
-  
   height: 110px;
   width: 864px;
   margin-top:30px;
-
 }
 
 .banner_box {
