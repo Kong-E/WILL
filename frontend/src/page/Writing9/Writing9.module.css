@@ -1,0 +1,46 @@
+.container {
+    display: flex;
+    flex-direction: column;
+align-items: center;
+  height: 846px;
+  width: 100%;
+}
+
+.textBig {
+color: #2E2E30;
+text-align: center;
+font-family: Noto Sans CJK KR;
+font-size: 32px;
+font-style: normal;
+font-weight: 700;
+line-height: normal;
+}
+.text{
+    color: #898394;
+text-align: center;
+font-family: Noto Sans CJK KR;
+font-size: 24px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+}
+
+.button{
+    margin-top:58px;
+display: inline-flex;
+padding: 15px 55px;
+justify-content: center;
+align-items: center;
+gap: 10px;
+border-radius: 50px;
+background: var(--gray-900, #2E2E30);
+}
+.buttonText{
+color: #FFF;
+text-align: center;
+font-family: Noto Sans CJK KR;
+font-size: 18px;
+font-style: normal;
+font-weight: 700;
+line-height: normal;
+}
