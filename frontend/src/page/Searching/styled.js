@@ -64,8 +64,8 @@ line-height: normal;
 `;
 
 export const NameContainer = styled.div`
+width: 100%;
 display: flex;
-width: 1000px;
 height: 17.516px;
 flex-direction: column;
 justify-content: center;
@@ -74,7 +74,7 @@ flex-shrink: 0;
 
 export const CodeContainer = styled.div`
 display: flex;
-width: 1000px;
+width: 100%;
 height: 17.516px;
 flex-direction: column;
 justify-content: center;

@@ -23,7 +23,6 @@ export const Writing9 = () =>{
             <span className={styles.buttonText}>확인하러 가기</span>
           </button>            
           </Link>
-
         </div>
       );
 };
