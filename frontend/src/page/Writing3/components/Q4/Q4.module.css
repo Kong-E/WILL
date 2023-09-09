@@ -6,7 +6,7 @@
   width: 100%;
 }
 
-.q2_container {
+.q4_container {
   display: flex;
   flex-direction: column;
   width: 864px;
@@ -22,13 +22,14 @@
   line-height: normal;
 }
 
-.q2Select_container {
+
+.q4Select_container {
   width: 864px;
   margin-top: 40px;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  /* 3개의 열을 만듭니다. */
-  gap: 30px 16px;
+  display: flex;
+  /* 가로 정렬을 위해 flexbox 사용 */
+  justify-content: space-between;
+  /* 요소 사이의 간격을 균등하게 설정 */
 }
 
 .selectBox {
@@ -98,19 +99,66 @@
   margin-bottom: 6px;
 }
 
-.hope_container {
-  background-color: #f4f4f4;
+.banner_container {
+  
+  height: 110px;
+  width: 864px;
+  margin-top:30px;
+
+}
+
+.banner_box {
+  z-index: 1;
+  position: absolute; /* 이미지를 절대 위치로 설정 */
+
+  display: flex;
+  align-items: center;
+  background-color: #FDEEFC;
   border: 1px solid;
   border-color: #f4f4f4;
   border-radius: 15px;
   height: 110px;
-  position: relative;
   width: 864px;
-  top: 30px;
 }
 
-textarea {
-  text-indent: 25px;
-  padding-top: 25px;
+.image {
+  z-index: 2;
+  height: 108px;
+  left: 25px;
+  position: absolute; 
+  width: 189px;
+}
+
+.text_container {
+  position: absolute; 
+  height: 54px;
+  width: 450px;
+}
+
+.text {
+  z-index: 3;
+  color: #2E2E30;
   font-style: normal;
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: 0;
+  line-height: normal;
+  margin-left: 38px;
+  margin-right: 220px;
+}
+
+.findHealthCenter_button {
+  display: inline-flex;
+  padding: 5px 18px;
+  align-items: center;
+  border-radius: 20px;
+  background: #C2A0C0;
+  border: 1px solid transparent;
+  color: #ffffff;
+  text-align: right;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  cursor: pointer;
 }

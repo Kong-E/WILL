@@ -6,20 +6,6 @@
   width: 100%;
 }
 
-.container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 1047px;
-  flex-shrink: 0;
-  border-radius: 35px;
-  border: 1px solid #eeedf1;
-  background: #fff;
-  box-shadow: 0px 0px 40px 0px rgba(0, 0, 0, 0.05);
-  padding-top: 77px;
-  padding-bottom: 20px;
-  margin-bottom: 280px;
-}
 
 .q3_container {
   display: flex;
@@ -45,8 +31,9 @@
 }
 
 
+
 .selectBox {
-  display: inline-flex;
+  display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -55,7 +42,7 @@
   border-color: #CAC8CE;
   border-radius: 10px;
   height: 79px;
-  width: 424px;
+  width: 426px;
   overflow: hidden;
   color: #2e2e30;
   /* 텍스트 색상 (기본) */
@@ -108,4 +95,70 @@
   line-height: normal;
   text-align: center;
   margin-bottom: 5px;
+}
+
+
+.banner_container {
+  
+  height: 110px;
+  width: 864px;
+  margin-top:30px;
+
+}
+
+.banner_box {
+  z-index: 1;
+  position: absolute; /* 이미지를 절대 위치로 설정 */
+
+  display: flex;
+  align-items: center;
+  background-color: #002b51;
+  border: 1px solid;
+  border-color: #f4f4f4;
+  border-radius: 15px;
+  height: 110px;
+  width: 864px;
+}
+
+.image {
+  z-index: 2;
+  height: 108px;
+  left: 25px;
+  position: absolute; 
+  width: 189px;
+}
+
+.text_container {
+  position: absolute; 
+  height: 54px;
+  width: 450px;
+}
+
+.text {
+  z-index: 3;
+  color: #eee;
+  font-style: normal;
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: 0;
+  line-height: normal;
+  margin-left: 38px;
+  margin-right: 250px;
+
+}
+
+.findHealthCenter_button {
+  display: inline-flex;
+  padding: 5px 18px;
+  align-items: center;
+  border-radius: 20px;
+  background: #ffffff4c;
+  border: 1px solid transparent;
+  color: #ffffff;
+  text-align: right;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  cursor: pointer;
 }
