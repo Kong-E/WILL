@@ -1,53 +1,32 @@
 .container {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+align-items: center;
   height: 846px;
   width: 100%;
 }
 
-.box .group {
-  height: 129px;
-  left: 0;
-  position: fixed;
-  top: 0;
-  width: 480px;
+.textBig {
+color: #2E2E30;
+text-align: center;
+font-family: Noto Sans CJK KR;
+font-size: 32px;
+font-style: normal;
+font-weight: 700;
+line-height: normal;
+}
+.text{
+    color: #898394;
+text-align: center;
+font-family: Noto Sans CJK KR;
+font-size: 24px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
 }
 
-.box .text-wrapper {
-  color: #2e2e30;
-  font-family: "Noto Sans CJK KR-Bold", Helvetica;
-  font-size: 32px;
-  font-weight: 700;
-  left: 5px;
-  letter-spacing: 0;
-  line-height: normal;
-  position: absolute;
-  text-align: center;
-  top: 0;
+.image{
+    width:252px;
+    height:170px;
 }
 
-.box .div {
-  color: #898394;
-  font-family: "Noto Sans CJK KR-Regular", Helvetica;
-  font-size: 24px;
-  font-weight: 400;
-  left: 0;
-  letter-spacing: 0;
-  line-height: normal;
-  position: absolute;
-  text-align: center;
-  top: 57px;
-}
-
-.box .span {
-  color: #898394;
-  font-family: "Noto Sans CJK KR-Regular", Helvetica;
-  font-size: 24px;
-  font-weight: 400;
-  letter-spacing: 0;
-}
-
-.box .text-wrapper-2 {
-  font-family: "Noto Sans CJK KR-Medium", Helvetica;
-  font-weight: 500;
-}

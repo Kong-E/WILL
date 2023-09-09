@@ -8,6 +8,7 @@ export { Writing3 } from './Writing3';
 export { Writing4 } from './Writing4';
 export { Writing5 } from './Writing5';
 export { Writing6 } from './Writing6';
+export { Writing8 } from './Writing8';
 export { Faq } from './Faq';
 export { Login } from './Login';
 export { Join } from './Join';
