@@ -113,6 +113,7 @@ export const Writing6 = () => {
           <div>{willState.organDonation.selected}</div>
           <div>{willState.inheritance.selected}</div>
           <div>{willState.inheritance.note}</div>
+          <div>{willState.plus.note}</div>
         </div>
         <PageNavigation nextPath="/writing7" />
         <div className={styles.date_text}>작성일자 서기 YYYY년 MM월 DD일</div>

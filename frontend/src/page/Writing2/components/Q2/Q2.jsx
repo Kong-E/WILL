@@ -58,7 +58,7 @@ export const Q2 = () => {
       },
     }));
   };
-
+  
   const handleCommentChange = e => {
     const updatedComment = e.target.value;
     setComment(updatedComment);       

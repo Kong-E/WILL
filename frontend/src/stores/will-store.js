@@ -24,6 +24,9 @@ export const WillState = atom({
       selected: '',
       note: '',
     },
+    plus: {
+      note: '',
+    },
     will: {
       note: '',
     },

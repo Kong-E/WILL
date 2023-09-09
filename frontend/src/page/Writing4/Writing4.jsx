@@ -21,7 +21,7 @@ const inheritanceOptions = [
 export const Writing4 = () => {
   const [willState, setWillState] = useRecoilState(WillState);
   const [selectedOption, setSelectedOption] = useState('');
-  const [comment, setComment] = useState(''); // 희망사항 상태 추가
+  const [comment, setComment] = useState(''); 
 
   const handleOptionClick = option => {
     setSelectedOption(option);
@@ -41,7 +41,7 @@ export const Writing4 = () => {
       ...prevWillState,
       inheritance: {
         ...prevWillState.inheritance,
-        note: updatedComment, // 희망사항 업데이트
+        note: updatedComment, 
       },
     }));
   };
@@ -92,7 +92,7 @@ export const Writing4 = () => {
         )}
 
         <div style={{ marginTop: '100px', marginBottom: '60px' }}>
-          <PageNavigation nextPath="/writing6" />
+          <PageNavigation nextPath="/writing5" />
         </div>
       </div>
     </div>
