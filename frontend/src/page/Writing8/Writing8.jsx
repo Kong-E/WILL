@@ -1,7 +1,18 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styles from './Writing8.module.css';
+import { useNavigate } from 'react-router-dom';
 
 export const Writing8 = () =>{
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      navigate('/Writing9'); // 일정 시간이 지나면 '/nextPage'로 이동
+    }, 5000);
+
+    return () => clearTimeout(timer);
+  }, [navigate]);
+
       return (
         <div className={styles.container}>
           <p className={styles.textBig} style={{ marginTop: '150px' }}>
