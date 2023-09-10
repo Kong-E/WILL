@@ -1,28 +1,48 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './Viewer.css';
+import { WillState } from 'stores/will-store';
+import { useRecoilState } from 'recoil';
 
 export const ViewerGroup = () => {
-  const [inputs, setInputs] = useState([{ name: '', email: '', relation: '' }]);
+  const [willState, setWillState] = useRecoilState(WillState);
 
   const handleInputChange = (index, event) => {
     const { name, value } = event.target;
-    const newInputs = [...inputs];
-    newInputs[index][name] = value;
-    setInputs(newInputs);
+
+    // beneficiary의 해당 인덱스에 해당하는 값 변경
+    setWillState(prevWillState => ({
+      ...prevWillState,
+      beneficiaries: prevWillState.beneficiaries.map((beneficiary, i) => {
+        if (i === index) {
+          return {
+            ...beneficiary,
+            [name]: value,
+          };
+        }
+        return beneficiary;
+      }),
+    }));
   };
 
   const handleAddInput = () => {
-    setInputs([...inputs, { name: '', email: '', relation: '' }]);
+    // beneficiaries에 새 항목 추가
+    setWillState(prevWillState => ({
+      ...prevWillState,
+      beneficiaries: [...prevWillState.beneficiaries, { name: '', email: '', relation: '' }],
+    }));
   };
 
   const handleRemoveInput = index => {
-    const newInputs = inputs.filter((_, i) => i !== index);
-    setInputs(newInputs);
+    // beneficiaries에서 해당 인덱스의 항목 제거
+    setWillState(prevWillState => ({
+      ...prevWillState,
+      beneficiaries: prevWillState.beneficiaries.filter((_, i) => i !== index),
+    }));
   };
 
   return (
     <div className="formContainer">
-      {inputs.map((input, index) => (
+      {willState.beneficiaries.map((beneficiary, index) => (
         <div className="inputGroup" key={index}>
           <div className="LastContainer">
             <div className="topGroup">
@@ -32,7 +52,7 @@ export const ViewerGroup = () => {
                   type="text"
                   name="name"
                   placeholder="이름을 입력하세요"
-                  value={input.name}
+                  value={beneficiary.name}
                   onChange={e => handleInputChange(index, e)}
                 />
               </div>
@@ -42,7 +62,7 @@ export const ViewerGroup = () => {
                   type="email"
                   name="email"
                   placeholder="이메일을 입력하세요"
-                  value={input.email}
+                  value={beneficiary.email}
                   onChange={e => handleInputChange(index, e)}
                 />
               </div>
@@ -54,7 +74,7 @@ export const ViewerGroup = () => {
                   type="text"
                   name="relation"
                   placeholder="작성자와의 관계를 입력하세요"
-                  value={input.relation}
+                  value={beneficiary.relation}
                   onChange={e => handleInputChange(index, e)}
                 />
               </div>

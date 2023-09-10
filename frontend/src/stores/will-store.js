@@ -30,7 +30,8 @@ export const WillState = atom({
     will: {
       note: '',
     },
-    beneficiaries: [],
+    beneficiaries: [{ name: '', email: '', relation: '' }],
+    openDate: '',
   },
   effects_UNSTABLE: [persistAtom],
 });

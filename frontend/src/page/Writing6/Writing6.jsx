@@ -110,7 +110,9 @@ export const Writing6 = () => {
           '/' +
           willState.inheritance.selected +
           '/' +
-          willState.inheritance.note,
+          willState.inheritance.note +
+          '/' +
+          willState.plus.note,
       },
     }));
   }, [willState]);

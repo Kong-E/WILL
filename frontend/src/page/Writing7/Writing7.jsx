@@ -8,13 +8,18 @@ import ko from 'date-fns/locale/ko';
 import { Progress } from 'components/Progress';
 import { PageNavigation } from 'components';
 import { ViewerGroup } from './component/Viewer';
+import { useRecoilState } from 'recoil';
+import { WillState } from 'stores/will-store';
 
 export const Writing7 = () => {
-  const [selectedDate, setSelectedDate] = useState(null);
+  const [willState, setWillState] = useRecoilState(WillState);
 
-  const handleDateChange = (date) => {
-    setSelectedDate(date);
-  }
+  const handleDateChange = date => {
+    setWillState(prevWillState => ({
+      ...prevWillState,
+      openDate: date,
+    }));
+  };
 
   return (
     <div className={styles.root}>
@@ -22,16 +27,20 @@ export const Writing7 = () => {
       <div className={styles.container}>
         <div className={styles.info_container}>
           <div className={styles.title}>열람인 지정</div>
-          <div className={styles.text}>
-            나의 유언장을 볼 수 있는 열람인을 지정합니다
-          </div>
+          <div className={styles.text}>나의 유언장을 볼 수 있는 열람인을 지정합니다</div>
         </div>
-        <ViewerGroup></ViewerGroup>
+        <ViewerGroup />
         <div className={styles.bottomcontainer}>
           <p className={styles.Open}>유언장 개봉일 : </p>
-          <DatePicker selected={selectedDate} onChange={handleDateChange} locale={ko} dateFormat="yyyy년 MM월 dd일" className={styles.date}/>
+          <DatePicker
+            selected={willState.openDate}
+            onChange={handleDateChange}
+            locale={ko}
+            dateFormat="yyyy년 MM월 dd일"
+            className={styles.date}
+          />
         </div>
-        <img src={Image} alt="nextPage" className={styles.imgStyle}/>
+        <img src={Image} alt="nextPage" className={styles.imgStyle} />
         <PageNavigation nextPath="/writing8" />
       </div>
     </div>
