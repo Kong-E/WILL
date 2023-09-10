@@ -3,7 +3,6 @@ import styles from './Writing6.module.scss';
 import { PageNavigation, Progress } from 'components';
 import { useRecoilState, useRecoilValue } from 'recoil';
 import { WillState } from 'stores/will-store';
-import { create as ipfsHttpClient } from 'ipfs-http-client';
 
 const mimeType = 'audio/webm';
 
@@ -14,23 +13,7 @@ export const Writing6 = () => {
   const [recordingStatus, setRecordingStatus] = useState('inactive');
   const [stream, setStream] = useState(null);
   const [audioChunks, setAudioChunks] = useState([]);
-  const [audio, setAudio] = useState('');
-  const [ipfs, setIpfs] = useState(null);
-  const [ipfsHash, setIpfsHash] = useState(null);
-
-  const projectId = process.env.REACT_APP_PROJECT_ID;
-  const projectSecretKey = process.env.REACT_APP_PROJECT_KEY;
-  const auth = 'Basic ' + btoa(projectId + ':' + projectSecretKey);
-
-  const ipfsUpload = async () => {
-    const ipfsClient = await ipfsHttpClient({
-      url: 'https://ipfs.infura.io:5001/api/v0',
-      headers: {
-        authorization: auth,
-      },
-    });
-    setIpfs(ipfsClient);
-  };
+  const [audio, setAudio] = useState(null);
 
   const getMicrophonePermission = async () => {
     if ('MediaRecorder' in window) {
@@ -84,46 +67,20 @@ export const Writing6 = () => {
     };
   };
 
-  const handleSubmitIPFS = async () => {
-    if (audio) {
-      const added = await ipfs.add(audio);
-      console.log(added);
-      setIpfsHash(added.path);
-    } else {
-      alert('No audio data available to upload to IPFS.');
-    }
-  };
-
   const updateWillNote = useCallback(() => {
     setWillState(prevState => ({
       ...prevState,
-      will: {
-        ...prevState.will,
-        note:
-          willState.funeral.selected +
-          '/' +
-          willState.funeral.note +
-          '/' +
-          willState.grave.selected +
-          '/' +
-          willState.grave.note +
-          '/' +
-          willState.lifeSupport.selected +
-          '/' +
-          willState.organDonation.selected +
-          '/' +
-          willState.inheritance.selected +
-          '/' +
-          willState.inheritance.note +
-          '/' +
-          willState.plus.note,
-      },
+      will: `${willState.funeral.selected} ${willState.funeral.note} ${willState.grave.selected} 
+         ${willState.grave.note} ${willState.lifeSupport.selected} 
+         ${willState.organDonation.selected} 
+         ${willState.inheritance.selected} 
+         ${willState.inheritance.note} 
+         ${willState.plus}`,
     }));
   }, [willState]);
 
   useEffect(() => {
     getMicrophonePermission();
-    ipfsUpload();
     updateWillNote();
   }, []);
 
@@ -173,7 +130,7 @@ export const Writing6 = () => {
           <div className={styles.text}>녹음이 시작되면 유언장 내용을 읽어주세요.</div>
         </div>
         <div className={styles.will_textarea}>
-          <div>{willState.will.note}</div>
+          <div>{willState.will}</div>
         </div>
         <PageNavigation nextPath="/writing7" />
         <div className={styles.date_text}>작성일자 서기 YYYY년 MM월 DD일</div>

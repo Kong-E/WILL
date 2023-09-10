@@ -24,13 +24,10 @@ export const WillState = atom({
       selected: '',
       note: '',
     },
-    plus: {
-      note: '',
-    },
-    will: {
-      note: '',
-    },
+    plus: '',
+    will: '',
     audio: '',
+    ipfsHash: '',
     beneficiaries: [{ name: '', email: '', relation: '' }],
     openDate: new Date(),
   },
