@@ -1,8 +1,13 @@
-import React from "react";
-import styles from "./Home.module.css";
-import {Lawyer} from "../../components/Lawyer/Lawyer";
+import React, { useState } from 'react';
+import styles from './Home.module.css';
+import { Lawyer } from './Lawyer';
+import { Link } from 'react-router-dom';
 
 export const Home = () => {
+  const handleClick = () => {
+    // 버튼 클릭 시 이동만 처리한 후 이벤트를 중지합니다.
+    return false;
+  };
   return (
     <div className={styles.root}>
       <div className={styles.container}>
@@ -27,11 +32,13 @@ export const Home = () => {
             }}>
             당신의 유언장을 남겨보세요.
           </p>
-          <button className={styles.button} style={{ marginTop: '405px' }}>
-            <p className={styles.text} style={{ fontSize: '28px', fontWeight: '700', color: '#000' }}>
-              유언장 작성하기
-            </p>
-          </button>
+          <Link to="./Writing1">
+            <button onClick={handleClick} className={styles.button} style={{ marginTop: '405px' }}>
+              <p className={styles.text} style={{ fontSize: '28px', fontWeight: '700', color: '#000' }}>
+                유언장 작성하기
+              </p>
+            </button>
+          </Link>
         </div>
       </div>
 
@@ -74,16 +81,18 @@ export const Home = () => {
           법률적 고민을 해결하세요.
         </p>
         <div className={styles.lawyerContainer}>
-          <Lawyer />
-          <Lawyer />
-          <Lawyer />
-          <Lawyer />
+          <Lawyer index={1} />
+          <Lawyer index={1} />
+          <Lawyer index={2} />
+          <Lawyer index={3} />
         </div>
-        <button className={styles.button} style={{ background: '#000', marginTop: '80px' }}>
-          <p className={styles.text} style={{ fontSize: '28px', fontWeight: '700', color: '#fff' }}>
-            변호사 알아보기
-          </p>
-        </button>
+        <Link to="./LawyerMain">
+          <button className={styles.button} style={{ background: '#000', marginTop: '80px' }}>
+            <p className={styles.text} style={{ fontSize: '28px', fontWeight: '700', color: '#fff' }}>
+              변호사 알아보기
+            </p>
+          </button>
+        </Link>
         <p className={styles.text} style={{ color: '#898394' }}>
           블록체인과 녹음 방식을 통해
           <br />
@@ -104,18 +113,20 @@ export const Home = () => {
         </p>
         <p
           className={styles.text}
-          style={{ fontSize: '24px', fontWeight: '500', position: 'absolute', marginTop: '251px' }}>
+          style={{ fontSize: '24px', fontWeight: '500', position: 'absolute', marginTop: '251px', color: '#F4F4F4' }}>
           이름, 주민등록번호를 통해 유언장의 유무를 검색하실 수 있고
           <br />
           별세 전담변호사를 통해 확인절차를 거친 뒤,
           <br />
           법률문서로 유언장을 찾으실 수 있습니다.
         </p>
-        <button className={styles.button} style={{ marginTop: '429px', position: 'absolute' }}>
-          <p className={styles.text} style={{ fontSize: '28px', fontWeight: '700', color: '#000' }}>
-            유언장 찾기
-          </p>
-        </button>
+        <Link to="./Searching">
+          <button className={styles.button} style={{ marginTop: '429px' }}>
+            <p className={styles.text} style={{ fontSize: '28px', fontWeight: '700', color: '#000' }}>
+              유언장 찾기
+            </p>
+          </button>
+        </Link>
       </div>
     </div>
   );

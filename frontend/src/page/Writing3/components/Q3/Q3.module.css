@@ -6,20 +6,6 @@
   width: 100%;
 }
 
-.container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 1047px;
-  flex-shrink: 0;
-  border-radius: 35px;
-  border: 1px solid #eeedf1;
-  background: #fff;
-  box-shadow: 0px 0px 40px 0px rgba(0, 0, 0, 0.05);
-  padding-top: 77px;
-  padding-bottom: 20px;
-  margin-bottom: 280px;
-}
 
 .q3_container {
   display: flex;
@@ -35,6 +21,7 @@
   line-height: normal;
 }
 
+
 .q3Select_container {
   width: 864px;
   margin-top: 40px;
@@ -42,70 +29,68 @@
   /* 가로 정렬을 위해 flexbox 사용 */
   justify-content: space-between;
   /* 요소 사이의 간격을 균등하게 설정 */
+
 }
 
+.banner_container {
+  height: 110px;
+  width: 864px;
+  margin-top:30px;
+}
 
-.selectBox {
-  display: inline-flex;
-  flex-direction: column;
-  justify-content: center;
+.banner_box {
+  z-index: 1;
+  position: absolute; /* 이미지를 절대 위치로 설정 */
+
+  display: flex;
   align-items: center;
-  background-color: #ffffff;
+  background-color: #002b51;
   border: 1px solid;
-  border-color: #CAC8CE;
-  border-radius: 10px;
-  height: 79px;
-  width: 424px;
-  overflow: hidden;
-  color: #2e2e30;
-  /* 텍스트 색상 (기본) */
-
-  transition: background-color 0.3s, color 0.3s;
-  /* 색상 전환 애니메이션 */
+  border-color: #f4f4f4;
+  border-radius: 15px;
+  height: 110px;
+  width: 864px;
 }
 
-.selectBox.clicked {
-  background-color: #2E2E30;
-  /* 클릭된 버튼의 배경색 변경 */
-  border-color: #CAC8CE;
-  /* 클릭된 버튼의 테두리 색상 변경 */
-  color: #fff !important;
-  /* 클릭된 버튼의 텍스트 색상을 흰색으로 변경 */
+.image {
+  z-index: 2;
+  height: 108px;
+  left: 25px;
+  position: absolute; 
+  width: 189px;
 }
-.content_text {
-  color: #675F5F;
+
+.text_container {
+  position: absolute; 
+  height: 54px;
+  width: 450px;
+}
+
+.text {
+  z-index: 3;
+  color: #eee;
   font-style: normal;
-  font-size: 16px;
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: 0;
+  line-height: normal;
+  margin-left: 38px;
+  margin-right: 250px;
+
+}
+
+.findHealthCenter_button {
+  display: inline-flex;
+  padding: 5px 18px;
+  align-items: center;
+  border-radius: 20px;
+  background: #ffffff4c;
+  border: 1px solid transparent;
+  color: #ffffff;
+  text-align: right;
+  font-size: 18px;
+  font-style: normal;
   font-weight: 500;
   line-height: normal;
-  text-align: center;
-}
-
-.content_text.clicked {
-  color: #F4F4F4;
-  font-style: normal;
-  font-size: 16px;
-  font-weight: 500;
-  line-height: normal;
-  text-align: center;
-}
-
-.title_text {
-  color: #2E2E30;
-  font-style: normal;
-  font-size: 16px;
-  font-weight: 700;
-  line-height: normal;
-  text-align: center;
-  margin-bottom: 5px;
-}
-
-.title_text.clicked {
-  color: #fff;
-  font-style: normal;
-  font-size: 16px;
-  font-weight: 700;
-  line-height: normal;
-  text-align: center;
-  margin-bottom: 5px;
+  cursor: pointer;
 }

@@ -13,31 +13,31 @@ const graveOptions = [
   {
     id: 2,
     title: '봉안묘',
-    src: '/images/q2-1.png',
+    src: '/images/q2-2.png',
     content: '화장 후 실외 시설물에 안치되길 원해요.',
   },
   {
     id: 3,
     title: '납골당',
-    src: '/images/q2-1.png',
+    src: '/images/q2-3.png',
     content: '화장 후 실내 시설물에 안치되길 원해요.',
   },
   {
     id: 4,
     title: '수목장',
-    src: '/images/q2-1.png',
+    src: '/images/q2-4.png',
     content: '화장 후 나무 아래 안치되길 원해요.',
   },
   {
     id: 5,
     title: '잔디장',
-    src: '/images/q2-1.png',
+    src: '/images/q2-5.png',
     content: '화장 후 잔디 아래 묻히길 원해요.',
   },
   {
     id: 6,
     title: '기타',
-    src: '/images/q2-1.png',
+    src: '/images/q2-6.png',
     content: '저만의 원하는 방식이 따로 있어요.',
   },
 ];
@@ -60,12 +60,13 @@ export const Q2 = () => {
   };
 
   const handleCommentChange = e => {
-    setComment(e.target.value);
+    const updatedComment = e.target.value;
+    setComment(updatedComment);       
     setWillState(prevWillState => ({
       ...prevWillState,
       grave: {
         ...prevWillState.grave,
-        note: comment,
+        note: updatedComment,
       },
     }));
   };

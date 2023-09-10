@@ -2,6 +2,7 @@
   display: inline-flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
   width: 424px;
   height: 79px;
   border-radius: 10px;
@@ -24,3 +25,4 @@
     font-weight: 500;
   }
 }
+

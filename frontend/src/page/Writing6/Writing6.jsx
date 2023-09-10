@@ -4,7 +4,6 @@ import { PageNavigation, Progress } from 'components';
 import { useRecoilState, useRecoilValue } from 'recoil';
 import { WillState } from 'stores/will-store';
 import { create as ipfsHttpClient } from 'ipfs-http-client';
-import ipfsKey from './ipfsKey';
 
 const mimeType = 'audio/webm';
 
@@ -156,9 +155,9 @@ export const Writing6 = () => {
           {audio && (
             <>
               <audio className={styles.audio} src={audio} type="audio/mp3" controls></audio>
-              <a download href={audio}>
+              {/* <a download href={audio}>
                 Download Recording
-              </a>
+              </a> */}
               {/* <button onClick={handleSubmitIPFS}>Upload to IPFS</button>
               <a download href={'https://ipfs.io/ipfs/' + ipfsHash}>
                 {'https://ipfs.io/ipfs/' + ipfsHash}

@@ -32,10 +32,10 @@ export const Q4 = () => {
 
   return (
     <div className={styles.root}>
-      <div className={styles.q2_container}>
+      <div className={styles.q4_container}>
         <div className={styles.title}>질문4. 장기기증을 신청하셨나요?</div>
 
-        <div className={styles.q2Select_container}>
+        <div className={styles.q4Select_container}>
           {organDonationOptions.map(option => (
             <Option
               key={option.id}
@@ -44,6 +44,17 @@ export const Q4 = () => {
               {option.title}
             </Option>
           ))}
+        </div>
+
+        <div className={styles.banner_container}>
+          <div className={styles.banner_box}>
+            <p className={styles.text}>
+            장기기증에 대한 의향이 있으신가요?
+        <br />
+        장기기증 신청하기 버튼을 통해 신청할 수 있습니다.
+            </p>
+            <button className={styles.findHealthCenter_button}>장기기증 신청하기 {'>'}</button>
+          </div>
         </div>
       </div>
     </div>
