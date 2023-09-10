@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import styles from './Writing8.module.css';
 import { useNavigate } from 'react-router-dom';
 import Web3 from 'web3';
@@ -7,16 +7,19 @@ import { useRecoilState, useRecoilValue } from 'recoil';
 import { WillState } from 'stores/will-store';
 import { UserState } from 'stores/login-store';
 import { create as ipfsHttpClient } from 'ipfs-http-client';
+import instance from 'api/axios';
 
 export const Writing8 = () => {
   const navigate = useNavigate();
 
-  const [transactionStatus, setTransactionStatus] = useState('');
+  const [transactionStatus, setTransactionStatus] = useState(null);
   const [web3, setWeb3] = useState(null);
   const [willState, setWillState] = useRecoilState(WillState);
   const userState = useRecoilValue(UserState);
   const [ipfs, setIpfs] = useState(null);
   const [ipfsHash, setIpfsHash] = useState(null);
+
+  const token = useMemo(() => localStorage.getItem('token'), []);
 
   const projectId = process.env.REACT_APP_PROJECT_ID;
   const projectSecretKey = process.env.REACT_APP_PROJECT_KEY;
@@ -99,6 +102,23 @@ export const Writing8 = () => {
     }
   };
 
+  const postTxHash = async () => {
+    try {
+      const response = await instance.put(
+        `/api/mypage/updateTxHash`,
+        {
+          txHash: transactionStatus,
+        },
+        {
+          headers: { Authorization: `Bearer ${token}` },
+        },
+      );
+      console.log(response);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   useEffect(() => {
     ipfsUpload();
   }, []);
@@ -114,6 +134,13 @@ export const Writing8 = () => {
       handleSaveToBlockchain();
     }
   }, [ipfsHash]);
+
+  useEffect(() => {
+    if (transactionStatus) {
+      postTxHash();
+      navigate('/writing9');
+    }
+  }, [transactionStatus]);
 
   return (
     <div className={styles.container}>
