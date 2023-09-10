@@ -3,6 +3,8 @@ import styles from './Writing6.module.scss';
 import { PageNavigation, Progress } from 'components';
 import { useRecoilState, useRecoilValue } from 'recoil';
 import { WillState } from 'stores/will-store';
+import { create as ipfsHttpClient } from 'ipfs-http-client';
+import ipfsKey from './ipfsKey';
 
 const mimeType = 'audio/webm';
 
@@ -14,6 +16,22 @@ export const Writing6 = () => {
   const [stream, setStream] = useState(null);
   const [audioChunks, setAudioChunks] = useState([]);
   const [audio, setAudio] = useState(null);
+  const [ipfs, setIpfs] = useState(null);
+  const [ipfsHash, setIpfsHash] = useState(null);
+
+  const projectId = process.env.REACT_APP_PROJECT_ID;
+  const projectSecretKey = process.env.REACT_APP_PROJECT_KEY;
+  const auth = 'Basic ' + btoa(projectId + ':' + projectSecretKey);
+
+  const ipfsUpload = async () => {
+    const ipfsClient = await ipfsHttpClient({
+      url: 'https://ipfs.infura.io:5001/api/v0',
+      headers: {
+        authorization: auth,
+      },
+    });
+    setIpfs(ipfsClient);
+  };
 
   const getMicrophonePermission = async () => {
     if ('MediaRecorder' in window) {
@@ -63,8 +81,45 @@ export const Writing6 = () => {
     };
   };
 
+  const handleSubmitIPFS = async () => {
+    if (audio) {
+      const added = await ipfs.add(audio);
+      console.log(added);
+      setIpfsHash(added.path);
+    } else {
+      alert('No audio data available to upload to IPFS.');
+    }
+  };
+
+  const updateWillNote = useCallback(() => {
+    setWillState(prevState => ({
+      ...prevState,
+      will: {
+        ...prevState.will,
+        note:
+          willState.funeral.selected +
+          '/' +
+          willState.funeral.note +
+          '/' +
+          willState.grave.selected +
+          '/' +
+          willState.grave.note +
+          '/' +
+          willState.lifeSupport.selected +
+          '/' +
+          willState.organDonation.selected +
+          '/' +
+          willState.inheritance.selected +
+          '/' +
+          willState.inheritance.note,
+      },
+    }));
+  }, [willState]);
+
   useEffect(() => {
     getMicrophonePermission();
+    ipfsUpload();
+    updateWillNote();
   }, []);
 
   return (
@@ -83,7 +138,11 @@ export const Writing6 = () => {
         </div>
         <div className={styles.record_container}>
           <div
-            className={recordingStatus === 'recording' ? `${styles.record_img} ${styles.active}` : styles.record_img}
+            className={
+              permission && recordingStatus === 'recording'
+                ? `${styles.record_img} ${styles.active}`
+                : styles.record_img
+            }
           />
           {recordingStatus === 'recording' ? (
             <div className={`${styles.record_button} ${styles.active}`} onClick={stopRecording}>
@@ -96,23 +155,20 @@ export const Writing6 = () => {
           )}
           {audio && (
             <>
-              <audio className={styles.audio} src={audio} controls></audio>
-              {/* <a download href={audio}>
+              <audio className={styles.audio} src={audio} type="audio/mp3" controls></audio>
+              <a download href={audio}>
                 Download Recording
+              </a>
+              {/* <button onClick={handleSubmitIPFS}>Upload to IPFS</button>
+              <a download href={'https://ipfs.io/ipfs/' + ipfsHash}>
+                {'https://ipfs.io/ipfs/' + ipfsHash}
               </a> */}
             </>
           )}
           <div className={styles.text}>녹음이 시작되면 유언장 내용을 읽어주세요.</div>
         </div>
         <div className={styles.will_textarea}>
-          <div>{willState.funeral.selected}</div>
-          <div>{willState.funeral.note}</div>
-          <div>{willState.grave.selected}</div>
-          <div>{willState.grave.note}</div>
-          <div>{willState.lifeSupport.selected}</div>
-          <div>{willState.organDonation.selected}</div>
-          <div>{willState.inheritance.selected}</div>
-          <div>{willState.inheritance.note}</div>
+          <div>{willState.will.note}</div>
         </div>
         <PageNavigation nextPath="/writing7" />
         <div className={styles.date_text}>작성일자 서기 YYYY년 MM월 DD일</div>
