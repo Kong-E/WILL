@@ -29,7 +29,6 @@ import { Layout } from './Routes/Layout';
 const App = () => {
   const isLogin = useRecoilValue(LoginState);
 
-
   return (
     <BrowserRouter>
       <GlobalStyle />
@@ -39,15 +38,15 @@ const App = () => {
           <Route path="/intro" element={<Intro />} />
           <Route path="/searching" element={<Searching />} />
           <Route path="/searchResult" element={<SearchResult />} />
-          <Route path="/writing1" element={<Writing1 />} />
-          <Route path="/writing2" element={<Writing2 />} />
-          <Route path="/writing3" element={<Writing3 />} />
-          <Route path="/writing4" element={<Writing4 />} />
-          <Route path="/writing5" element={<Writing5 />} />
-          <Route path="/writing6" element={<Writing6 />} />
-          <Route path="/writing7" element={<Writing7 />} />
-          <Route path="/writing8" element={<Writing8 />} />
-          <Route path="/writing9" element={<Writing9 />} />
+          <Route path="/writing1" element={isLogin ? <Writing1 /> : <Navigate to="/login" />} />
+          <Route path="/writing2" element={isLogin ? <Writing2 /> : <Navigate to="/login" />} />
+          <Route path="/writing3" element={isLogin ? <Writing3 /> : <Navigate to="/login" />} />
+          <Route path="/writing4" element={isLogin ? <Writing4 /> : <Navigate to="/login" />} />
+          <Route path="/writing5" element={isLogin ? <Writing5 /> : <Navigate to="/login" />} />
+          <Route path="/writing6" element={isLogin ? <Writing6 /> : <Navigate to="/login" />} />
+          <Route path="/writing7" element={isLogin ? <Writing7 /> : <Navigate to="/login" />} />
+          <Route path="/writing8" element={isLogin ? <Writing8 /> : <Navigate to="/login" />} />
+          <Route path="/writing9" element={isLogin ? <Writing9 /> : <Navigate to="/login" />} />
           <Route path="/faq" element={<Faq />} />
           <Route path="/login" element={isLogin ? <Navigate to="/mypage" /> : <Login />} />
           <Route path="/join" element={isLogin ? <Navigate to="/mypage" /> : <Join />} />
