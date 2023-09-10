@@ -5,12 +5,12 @@ export const Footer = () => {
   return (
     <div className={styles.root}>
       <footer className={styles.footer}>
-        <p className={styles.text} style={{ fontSize: '25px', marginRight: '250px', marginTop: '49px' }}>
+        <div className={styles.text} style={{ fontSize: '25px', marginRight: '250px', marginTop: '49px' }}>
           별세(別世)
           <p className={styles.text} style={{ fontSize: '10px' }}>
             블록체인 유언장 법률 커뮤니티
           </p>
-        </p>
+        </div>
         <p className={styles.text} style={{ marginLeft: '250px', marginTop: '49px' }}>
           (주)별세
           <br />

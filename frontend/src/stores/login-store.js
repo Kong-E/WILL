@@ -16,7 +16,7 @@ export const UserState = atom({
     email: '',
     username: '',
     phoneNumber: '',
-    bookmarkedQuestions: [],
+    hash: '',
   },
   effects_UNSTABLE: [persistAtom],
 });

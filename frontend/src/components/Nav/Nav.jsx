@@ -93,13 +93,13 @@ export const Nav = () => {
         </span>
       </p>
       <div className={styles.bannerContainer}>
-        <p className={styles.text}>서비스 소개</p>
+        <p className={styles.text} onClick={() => navigate('/')}>서비스 소개</p>
         <p className={styles.text} onClick={() => navigate('/writing1')}>
           유언장 작성하기
         </p>
-        <p className={styles.text}>유언장 찾기</p>
-        <p className={styles.text}>변호사 알아보기</p>
-        <p className={styles.text}>법률 문의 게시판</p>
+        <p className={styles.text} onClick={() => navigate('/searching')}>유언장 찾기</p>
+        <p className={styles.text}  onClick={() => navigate('/lawyerMain')}>변호사 알아보기</p>
+        <p className={styles.text}onClick={() => navigate('/faq')}>법률 문의 게시판</p>
         {loginState ? (
           <button className={styles.button} onClick={handleLogout}>
             <p className={styles.login_text}>로그아웃</p>

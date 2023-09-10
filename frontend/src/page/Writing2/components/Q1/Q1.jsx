@@ -1,95 +1,90 @@
 import React, { useState } from 'react';
-import styles from './Q1.module.css';
+import styles from './Q1.module.scss';
 import { useRecoilState } from 'recoil';
-import { selectedOptionState } from '../../state';
+import { WillState } from 'stores/will-store';
+
+const funeralOptions = [
+  {
+    id: 1,
+    title: '일반 3일장',
+    content: '가족과 지인이 함께 했으면 좋겠어요.',
+  },
+  {
+    id: 2,
+    title: '가족장',
+    content: '가족이랑만 장례를 치르고 싶어요.',
+  },
+  {
+    id: 3,
+    title: '무빈소 장례식',
+    content: '빈소를 차리지 않고 간소하게 하고싶어요.',
+  },
+  {
+    id: 4,
+    title: '종교장',
+    content: '제가 믿는 종교에 따라 진행하고 싶어요.',
+  },
+  {
+    id: 5,
+    title: '기타',
+    content: '저만의 희망하는 장례방식이 있어요.',
+  },
+];
+
 export const Q1 = () => {
-  const [selectedOption, setSelectedOption] = useRecoilState(selectedOptionState);
-  const [clickedOption, setClickedOption] = useState(null);
+  const [willState, setWillState] = useRecoilState(WillState);
+  const [clickedOption, setClickedOption] = useState(''); // 클릭된 옵션 상태 추가
+  const [comment, setComment] = useState(''); // 희망사항 상태 추가
 
   const handleOptionClick = option => {
-    setSelectedOption(option);
-    setClickedOption(option); // 클릭된 버튼의 값을 저장
-    sessionStorage.setItem('selectedOption', option); // 세션 스토리지에 저장
+    setClickedOption(option); // 클릭된 옵션 업데이트
+    // WillState의 funeral 업데이트
+    setWillState(prevWillState => ({
+      ...prevWillState,
+      funeral: {
+        ...prevWillState.funeral,
+        selected: option,
+      },
+    }));
   };
 
-  //희망사항 입력
-  const handleCommentSubmit = event => {
-    event.preventDefault();
-    // 여기에 댓글을 서버에 제출하는 로직을 추가할 수 있습니다.
+  const handleCommentChange = e => {
+    const updatedComment = e.target.value;
+    setComment(updatedComment);   
+    setWillState(prevWillState => ({
+      ...prevWillState,
+      funeral: {
+        ...prevWillState.funeral,
+        note: updatedComment, // 희망사항 업데이트
+      },
+    }));
   };
+
   return (
     <div className={styles.root}>
       <div className={styles.q1_container}>
         <div className={styles.title}>질문1. 어떤 장례식을 원하시나요?</div>
 
         <div className={styles.q1Select_container}>
-          <button
-            className={`${styles.selectBox} ${clickedOption === '일반 3일장' && styles.clicked}`}
-            onClick={() => handleOptionClick('일반 3일장')}>
-            <div className={`${styles.title_text} ${clickedOption === '일반 3일장' && styles.clicked}`}>일반 3일장</div>
-            <div className={`${styles.content_text} ${clickedOption === '일반 3일장' && styles.clicked}`}>
-              가족과 지인이
-              <br />
-              함께 했으면
-              <br />
-              좋겠어요.
-            </div>
-          </button>
-
-          <button
-            className={`${styles.selectBox} ${clickedOption === '가족장' && styles.clicked}`}
-            onClick={() => handleOptionClick('가족장')}>
-            <div className={`${styles.title_text} ${clickedOption === '가족장' && styles.clicked}`}>가족장</div>
-            <div className={`${styles.content_text} ${clickedOption === '가족장' && styles.clicked}`}>
-              가족이랑만
-              <br />
-              장례를 치르고
-              <br />
-              싶어요.
-            </div>
-          </button>
-
-          <button
-            className={`${styles.selectBox} ${clickedOption === '무빈소 장례식' && styles.clicked}`}
-            onClick={() => handleOptionClick('무빈소 장례식')}>
-            <div className={`${styles.title_text} ${clickedOption === '무빈소 장례식' && styles.clicked}`}>
-              무빈소 장례식
-            </div>
-            <div className={`${styles.content_text} ${clickedOption === '무빈소 장례식' && styles.clicked}`}>
-              빈소를 차리지
-              <br />
-              않고 간소하게 <br />
-              하고싶어요.
-            </div>
-          </button>
-
-          <button
-            className={`${styles.selectBox} ${clickedOption === '종교장' && styles.clicked}`}
-            onClick={() => handleOptionClick('종교장')}>
-            <div className={`${styles.title_text} ${clickedOption === '종교장' && styles.clicked}`}>종교장</div>
-            <div className={`${styles.content_text} ${clickedOption === '종교장' && styles.clicked}`}>
-              제가 믿는 종교에 <br />
-              따라 진행하고 <br />
-              싶어요.
-            </div>
-          </button>
-
-          <button
-            className={`${styles.selectBox} ${clickedOption === '기타' && styles.clicked}`}
-            onClick={() => handleOptionClick('기타')}>
-            <div className={`${styles.title_text} ${clickedOption === '기타' && styles.clicked}`}>기타</div>
-            <div className={`${styles.content_text} ${clickedOption === '기타' && styles.clicked}`}>
-              저만의 희망하는
-              <br />
-              장례방식이
-              <br />
-              있어요.
-            </div>
-          </button>
+          {funeralOptions.map(option => (
+            <button
+              key={option.id}
+              className={`${styles.selectBox} ${
+                (clickedOption === option.title || willState.funeral.selected === option.title) && styles.clicked
+              }`}
+              onClick={() => handleOptionClick(option.title)}>
+              <div className={styles.title_text}>{option.title}</div>
+              <div className={styles.content_text}>{option.content}</div>
+            </button>
+          ))}
         </div>
-        <form onSubmit={handleCommentSubmit}>
-          <textarea className={styles.hope_container} placeholder="희망사항을 남겨주세요" />
-        </form>
+        
+        <textarea
+          className={styles.hope_container}
+          placeholder="희망사항을 남겨주세요"
+          value={comment || willState.funeral.note}
+          onChange={handleCommentChange}
+        />
       </div>
     </div>
   );

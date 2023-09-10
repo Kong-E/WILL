@@ -1,0 +1,85 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 1047px;
+  flex-shrink: 0;
+  border-radius: 35px;
+  border: 1px solid #eeedf1;
+  background: #fff;
+  box-shadow: 0px 0px 40px 0px rgba(0, 0, 0, 0.05);
+  padding-top: 77px;
+  padding-bottom: 20px;
+  margin-bottom: 280px;
+}
+
+.info_container {
+  display: flex;
+  flex-direction: column;
+  width: 864px;
+}
+
+.title {
+  color: #2e2e30;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.text {
+  color: var(--gray800, #675f5f);
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  margin: 10px 0;
+}
+
+.legal_effect_wrapper {
+  display: flex;
+  align-items: center;
+  width: 178px;
+  height: 37px;
+  padding: 5px 20px;
+  gap: 10px;
+  border-radius: 20px;
+  background: #eeedf1;
+  color: #898394;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.legal_effect_img {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.hope_container {
+  background-color: #f4f4f4;
+  border: 1px solid;
+  border-color: #f4f4f4;
+  border-radius: 15px;
+  height: 400px;
+  position: relative;
+  width: 864px;
+  top: 30px;
+}
+
+textarea {
+  text-indent: 25px;
+  /* 플레이스홀더 텍스트를 왼쪽으로 10px 옮김 */
+  padding-top: 25px;
+  font-style: normal;
+}

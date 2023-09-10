@@ -1,16 +1,33 @@
 import React, { useState } from 'react';
 import styles from './Q3.module.css';
 import { useRecoilState } from 'recoil';
-import { selectedOptionState3 } from '../../state';
+import { Option } from 'components';
+import { WillState } from 'stores/will-store';
+
+const lifeSupportOptions = [
+  {
+    id: 1,
+    title: '연명치료를 원합니다.',
+  },
+  {
+    id: 2,
+    title: '연명치료를 원하지 않습니다.',
+  },
+];
 
 export const Q3 = () => {
-  const [selectedOption3, setSelectedOption3] = useRecoilState(selectedOptionState3);
-  const [clickedOption3, setClickedOption3] = useState(null);
+  const [willState, setWillState] = useRecoilState(WillState);
+  const [selectedOption, setSelectedOption] = useState('');
 
-  const handleOptionClick3 = option => {
-    setSelectedOption3(option);
-    setClickedOption3(option); // 클릭된 버튼의 값을 저장
-    sessionStorage.setItem('selectedOption3', option); // 세션 스토리지에 저장
+  const handleOptionClick = option => {
+    setSelectedOption(option);
+    setWillState(prevWillState => ({
+      ...prevWillState,
+      lifeSupport: {
+        ...prevWillState.lifeSupport,
+        selected: option,
+      },
+    }));
   };
 
   return (
@@ -19,20 +36,25 @@ export const Q3 = () => {
         <div className={styles.title}>질문3. 연명치료에 대해 결정된 사항이 있나요?</div>
 
         <div className={styles.q3Select_container}>
-          <button
-            className={`${styles.selectBox} ${clickedOption3 === '연명치료를 원해요' && styles.clicked}`}
-            onClick={() => handleOptionClick3('연명치료를 원해요')}>
-            <div className={`${styles.title_text} ${clickedOption3 === '연명치료를 원해요' && styles.clicked}`}>연명치료를 원해요</div>
-          </button>
-
-          <button
-            className={`${styles.selectBox} ${clickedOption3 === '연명치료를 원하지 않아요' && styles.clicked}`}
-            onClick={() => handleOptionClick3('연명치료를 원하지 않아요')}>
-            <div className={`${styles.title_text} ${clickedOption3 === '연명치료를 원하지 않아요' && styles.clicked}`}>연명치료를 원하지 않아요</div>
-          </button>
+          {lifeSupportOptions.map(option => (
+            <Option
+              key={option.id}
+              onClick={() => handleOptionClick(option.title)}
+              active={selectedOption === option.title || willState.lifeSupport.selected === option.title}>
+              {option.title}
+            </Option>
+          ))}
         </div>
-
-
+        <div className={styles.banner_container}>
+          <div className={styles.banner_box}>
+            <img className={styles.image} alt="Image" src="images/Q3_banner.png" />
+            <p className={styles.text}>
+              연명치료를 원하지 않는시다면, <br />
+              전국 보건소에서 연명치료 거부 신청을 할 수 있습니다.
+            </p>
+            <button className={styles.findHealthCenter_button}>보건소 찾기 {'>'}</button>
+          </div>
+        </div>
       </div>
     </div>
   );

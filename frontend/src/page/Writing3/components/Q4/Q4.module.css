@@ -6,11 +6,12 @@
   width: 100%;
 }
 
-
-.q3_container {
+.q4_container {
   display: flex;
   flex-direction: column;
   width: 864px;
+  margin-top: 100px;
+  margin-bottom: 100px;
 }
 
 .title {
@@ -22,20 +23,21 @@
 }
 
 
-.q3Select_container {
+.q4Select_container {
   width: 864px;
   margin-top: 40px;
   display: flex;
   /* 가로 정렬을 위해 flexbox 사용 */
   justify-content: space-between;
   /* 요소 사이의 간격을 균등하게 설정 */
-
 }
 
 .banner_container {
+  
   height: 110px;
   width: 864px;
   margin-top:30px;
+
 }
 
 .banner_box {
@@ -44,7 +46,7 @@
 
   display: flex;
   align-items: center;
-  background-color: #002b51;
+  background-color: #FDEEFC;
   border: 1px solid;
   border-color: #f4f4f4;
   border-radius: 15px;
@@ -68,15 +70,14 @@
 
 .text {
   z-index: 3;
-  color: #eee;
+  color: #2E2E30;
   font-style: normal;
   font-size: 18px;
   font-weight: 500;
   letter-spacing: 0;
   line-height: normal;
   margin-left: 38px;
-  margin-right: 250px;
-
+  margin-right: 220px;
 }
 
 .findHealthCenter_button {
@@ -84,7 +85,7 @@
   padding: 5px 18px;
   align-items: center;
   border-radius: 20px;
-  background: #ffffff4c;
+  background: #C2A0C0;
   border: 1px solid transparent;
   color: #ffffff;
   text-align: right;

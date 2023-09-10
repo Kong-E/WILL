@@ -2,6 +2,7 @@
   display: inline-flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
   width: 424px;
   height: 79px;
   border-radius: 10px;
@@ -16,17 +17,12 @@
   cursor: pointer;
   transition: all 0.2s ease-in-out;
 
-  &:hover {
+  &:hover, &.active {
     border-radius: 10px;
     border: 1px solid var(--gray-300, #cac8ce);
     background: #2e2e30;
     color: #fff;
-  }
-
-  &.active {
-    border-radius: 10px;
-    border: 1px solid var(--gray-300, #cac8ce);
-    background: #2e2e30;
-    color: #fff;
+    font-weight: 500;
   }
 }
+

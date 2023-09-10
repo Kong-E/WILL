@@ -19,6 +19,7 @@ const GlobalStyle = createGlobalStyle`
     font-size: 16px;
     margin: 0;
     padding: 0;
+    overflow-x: hidden;
   }
 
   /* 스크롤바 전체 기본 꾸미기 */

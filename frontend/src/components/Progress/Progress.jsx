@@ -37,7 +37,7 @@ export const Progress = ({ step }) => {
 
         <div className={styles.stepAll_container}>
           {steps.map(item => (
-            <div className={styles.step_container}>
+            <div className={styles.step_container} key={item.number}>
               <div className={styles.numberBox} style={step === item.number ? { backgroundColor: '#2e2e30' } : {}}>
                 <div className={styles.text} style={step === item.number ? { color: '#fff' } : {}}>
                   {item.number}
