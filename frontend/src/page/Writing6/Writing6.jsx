@@ -14,7 +14,7 @@ export const Writing6 = () => {
   const [recordingStatus, setRecordingStatus] = useState('inactive');
   const [stream, setStream] = useState(null);
   const [audioChunks, setAudioChunks] = useState([]);
-  const [audio, setAudio] = useState(null);
+  const [audio, setAudio] = useState('');
   const [ipfs, setIpfs] = useState(null);
   const [ipfsHash, setIpfsHash] = useState(null);
 
@@ -76,6 +76,10 @@ export const Writing6 = () => {
       //creates a playable URL from the blob file.
       const audioUrl = URL.createObjectURL(audioBlob);
       setAudio(audioUrl);
+      setWillState(prevState => ({
+        ...prevState,
+        audio: audioUrl,
+      }));
       setAudioChunks([]);
     };
   };
@@ -154,9 +158,9 @@ export const Writing6 = () => {
               녹음 시작하기
             </div>
           )}
-          {audio && (
+          {(audio || willState.audio) && (
             <>
-              <audio className={styles.audio} src={audio} type="audio/mp3" controls></audio>
+              <audio className={styles.audio} src={audio || willState.audio} type="audio/mp3" controls></audio>
               {/* <a download href={audio}>
                 Download Recording
               </a> */}
