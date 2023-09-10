@@ -11,6 +11,7 @@ import {
   Writing2,
   Writing3,
   Writing6,
+  Writing7,
   Faq,
   Login,
   Join,
@@ -39,6 +40,7 @@ const App = () => {
           <Route path="/writing2" element={<Writing2 />} />
           <Route path="/writing3" element={<Writing3 />} />
           <Route path="/writing6" element={<Writing6 />} />
+          <Route path="/writing7" element={<Writing7 />} />
           <Route path="/faq" element={<Faq />} />
           <Route path="/login" element={isLogin ? <Navigate to="/mypage" /> : <Login />} />
           <Route path="/join" element={isLogin ? <Navigate to="/mypage" /> : <Join />} />
