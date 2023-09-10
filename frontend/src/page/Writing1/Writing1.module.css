@@ -170,6 +170,14 @@
   top:10px;
 }
 
+.tooltipContainer_step6 {
+  align-items: center;
+  display: inline-flex;
+  flex-direction: column;
+  position: relative;
+  left:370px;
+}
+
 .tooltipButton {
   width: 24px; 
   height: 24px; 
@@ -213,6 +221,8 @@
   display: block;
 }
 
+
+
 .blackbuttonContainer {
   display: flex;
   justify-content: center; /* 수평 가운데 정렬 */
@@ -242,3 +252,4 @@
   width: fit-content;
   cursor: pointer;
 }
+
