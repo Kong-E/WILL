@@ -1,1 +1,0 @@
-export { LawyerReview } from "./LawyerReview";

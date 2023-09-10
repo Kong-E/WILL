@@ -21,7 +21,6 @@ import {
   Join,
   MyPage,
   LawyerMain,
-  LawyerReview,
   LawyerProfile,
 } from './page';
 import { LoginState } from 'stores/login-store';
@@ -54,7 +53,6 @@ const App = () => {
           <Route path="/join" element={isLogin ? <Navigate to="/mypage" /> : <Join />} />
           <Route path="/mypage" element={isLogin ? <MyPage /> : <Navigate to="/login" />} />
           <Route path="/lawyerMain" element={<LawyerMain />} />
-          <Route path="/lawyerReview" element={<LawyerReview />} />
           <Route path="/lawyerProfile" element={<LawyerProfile />} />
         </Route>
       </Routes>

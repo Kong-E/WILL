@@ -17,4 +17,3 @@ export { Join } from './Join';
 export { MyPage } from './MyPage';
 export { LawyerMain } from './LawyerMain';
 export { LawyerProfile } from './LawyerProfile';
-export { LawyerReview } from './LawyerReview';
