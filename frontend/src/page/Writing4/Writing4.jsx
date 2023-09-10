@@ -21,7 +21,7 @@ const inheritanceOptions = [
 export const Writing4 = () => {
   const [willState, setWillState] = useRecoilState(WillState);
   const [selectedOption, setSelectedOption] = useState('');
-  const [comment, setComment] = useState(''); 
+  const [comment, setComment] = useState('');
 
   const handleOptionClick = option => {
     setSelectedOption(option);
@@ -41,7 +41,7 @@ export const Writing4 = () => {
       ...prevWillState,
       inheritance: {
         ...prevWillState.inheritance,
-        note: updatedComment, 
+        note: updatedComment,
       },
     }));
   };
@@ -69,7 +69,7 @@ export const Writing4 = () => {
           ))}
         </div>
 
-        {selectedOption === '유언상속' && (
+        {(selectedOption || willState.inheritance.selected) === '유언상속' && (
           <div className={styles.info_container}>
             <p className={styles.text} style={{ fontSize: '18px', color: '#898394' }}>
               상속관계 유언 예시
