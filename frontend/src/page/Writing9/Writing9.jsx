@@ -18,7 +18,7 @@ export const Writing9 = () =>{
             확인 및 수정이 가능합니다.
           </p>
           <img width="252px" height="170px" marginTop="27px" src="CreatWill.svg" />
-          <Link to="/Searching">
+          <Link to="/MyPage">
           <button className={styles.button}>
             <span className={styles.buttonText}>확인하러 가기</span>
           </button>            
