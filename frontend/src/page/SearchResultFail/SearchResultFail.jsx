@@ -1,6 +1,6 @@
 import { Root } from "./styled";
 
-export const SearchResult = () => {
+export const SearchResultFail = () => {
   return (
     <Root>
 SearchResult

@@ -6,7 +6,7 @@ import {
   Home,
   Intro,
   Searching,
-  SearchResult,
+  SearchResultFail,
   Writing1,
   Writing2,
   Writing3,
@@ -37,7 +37,7 @@ const App = () => {
           <Route index element={<Home />} />
           <Route path="/intro" element={<Intro />} />
           <Route path="/searching" element={<Searching />} />
-          <Route path="/searchResult" element={<SearchResult />} />
+          <Route path="/searchResultFail" element={<SearchResultFail />} />
           <Route path="/writing1" element={isLogin ? <Writing1 /> : <Navigate to="/login" />} />
           <Route path="/writing2" element={isLogin ? <Writing2 /> : <Navigate to="/login" />} />
           <Route path="/writing3" element={isLogin ? <Writing3 /> : <Navigate to="/login" />} />
