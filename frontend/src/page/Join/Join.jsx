@@ -93,14 +93,14 @@ export const Join = () => {
           {passwordConfirm.length !== 0 && password !== passwordConfirm && '비밀번호가 일치하지 않습니다.'}
         </span>
         <div className={styles.wrapper}>
-          <label htmlFor="nickname">닉네임</label>
+          <label htmlFor="name">이름</label>
           <input
             type="text"
-            id="nickname"
-            name="nickname"
+            id="name"
+            name="name"
             value={username}
             onChange={handleUserNameChange}
-            placeholder="닉네임을 입력해주세요."
+            placeholder="이름을 입력해주세요."
           />
         </div>
         <div className={styles.wrapper}>
