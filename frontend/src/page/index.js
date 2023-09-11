@@ -1,7 +1,7 @@
 export { Home } from './Home';
 export { Intro } from './Intro';
 export { Searching } from './Searching';
-export { SearchResult } from './SearchResult';
+export { SearchResultFail } from './SearchResultFail';
 export { Writing1 } from './Writing1';
 export { Writing2 } from './Writing2';
 export { Writing3 } from './Writing3';

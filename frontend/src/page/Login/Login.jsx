@@ -64,23 +64,37 @@ export const Login = () => {
   };
 
   return (
-    <div className={styles.container}> 
-      <div>
+    <div className={styles.container}>
       <h1 className={styles.title}>로그인</h1>
-      <p className={styles.subtitle}>원활한 이용을 위해 로그인해주세요</p>
+      <h2 className={styles.subtitle}>원활한 이용을 위해 로그인해주세요.</h2>
       <form className={styles.form}>
-        <label htmlFor="email" className={styles.idtext}>아이디</label>
-        <input type="email" id="email" value={email} onChange={handleEmailChange} className={styles.idbox} placeholder="아이디를 입력해주세요"/>
-        <label htmlFor="password" className={styles.passtext}>비밀번호</label>
-        <input type="password" id="password" value={password} onChange={handlePasswordChange} className={styles.passbox} placeholder="비밀번호를 입력해주세요"/>
-        <button type="submit" onClick={handleLogin} className={styles.loginbox}>
+        <div className={styles.wrapper}>
+          <label htmlFor="email">이메일</label>
+          <input
+            type="email"
+            id="email"
+            value={email}
+            onChange={handleEmailChange}
+            placeholder="이메일을 입력해주세요."
+          />
+        </div>
+        <div className={styles.wrapper}>
+          <label htmlFor="password">비밀번호</label>
+          <input
+            type="password"
+            id="password"
+            value={password}
+            onChange={handlePasswordChange}
+            placeholder="비밀번호를 입력해주세요."
+          />
+        </div>
+        <button className={styles.login_button} type="submit" onClick={handleLogin}>
           로그인
         </button>
-        <button type="button" onClick={() => navigate('/join')} className={styles.signupbox}>
+        <button className={styles.join_button} type="button" onClick={() => navigate('/join')}>
           회원가입
         </button>
       </form>
-    </div>
     </div>
   );
 };
