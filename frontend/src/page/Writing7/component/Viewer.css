@@ -135,13 +135,6 @@
   margin-right: 30px;
   padding-left: 15px;
 }
-
-.LastContainer {
-}
-
-.BehindContainer {
-}
-
 .inputField input::placeholder {
   font-size: 14px;
 }
