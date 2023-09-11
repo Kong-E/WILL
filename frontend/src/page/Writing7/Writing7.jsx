@@ -4,6 +4,7 @@ import Image from './component/순서도.PNG';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import ko from 'date-fns/locale/ko';
+import moment from 'moment';
 
 import { Progress } from 'components/Progress';
 import { PageNavigation } from 'components';
@@ -13,6 +14,7 @@ import { WillState } from 'stores/will-store';
 
 export const Writing7 = () => {
   const [willState, setWillState] = useRecoilState(WillState);
+  const selectedDate = moment(willState.openDate).toDate('yyyy년 MM월 dd일');
 
   const handleDateChange = date => {
     setWillState(prevWillState => ({
@@ -33,7 +35,7 @@ export const Writing7 = () => {
         <div className={styles.bottomcontainer}>
           <p className={styles.Open}>유언장 개봉일 : </p>
           <DatePicker
-            selected={willState.openDate}
+            selected={selectedDate}
             onChange={handleDateChange}
             locale={ko}
             dateFormat="yyyy년 MM월 dd일"

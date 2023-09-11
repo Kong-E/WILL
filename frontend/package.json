@@ -7,7 +7,10 @@
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "axios": "^1.5.0",
+    "babel-polyfill": "^6.26.0",
+    "babel-register": "^6.26.0",
     "ipfs-http-client": "^60.0.1",
+    "moment": "^2.29.4",
     "node-sass": "^9.0.0",
     "react": "^18.2.0",
     "react-datepicker": "^4.17.0",
@@ -18,7 +21,8 @@
     "recoil": "^0.7.7",
     "recoil-persist": "^5.1.0",
     "styled-components": "^6.0.7",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^2.1.4",
+    "web3": "^4.1.1"
   },
   "scripts": {
     "start": "react-scripts start",

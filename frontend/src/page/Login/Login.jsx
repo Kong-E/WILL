@@ -55,9 +55,9 @@ export const Login = () => {
       // 로그인 성공 후
       setIsLoggedIn(true);
       setUserState(user);
-
+      /* 
       navigate('/');
-      window.location.reload();
+      window.location.reload(); */
     } catch (error) {
       console.error('로그인 실패:', error.response.data.reason);
     }

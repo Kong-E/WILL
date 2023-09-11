@@ -14,11 +14,10 @@ export const Writing5 = () => {
     setComment(updatedComment);
     setWillState(prevWillState => ({
       ...prevWillState,
-      plus: {
-        note: updatedComment,
-      },
+      plus: updatedComment,
     }));
   };
+
   return (
     <div className={styles.root}>
       <Progress step={4} />
@@ -29,7 +28,7 @@ export const Writing5 = () => {
           <textarea
             className={styles.hope_container}
             placeholder="텍스트를 입력해주세요"
-            value={comment || willState.plus?.note}
+            value={comment || willState.plus}
             onChange={handleCommentChange}
           />
         </div>
