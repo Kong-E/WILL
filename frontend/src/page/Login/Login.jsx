@@ -64,18 +64,35 @@ export const Login = () => {
   };
 
   return (
-    <div>
-      <h1>Login</h1>
+    <div className={styles.container}>
+      <h1 className={styles.title}>로그인</h1>
+      <h2 className={styles.subtitle}>원활한 이용을 위해 로그인해주세요.</h2>
       <form className={styles.form}>
-        <label htmlFor="email">Email</label>
-        <input type="email" id="email" value={email} onChange={handleEmailChange} />
-        <label htmlFor="password">Password</label>
-        <input type="password" id="password" value={password} onChange={handlePasswordChange} />
-        <button type="submit" onClick={handleLogin}>
-          Sign In
+        <div className={styles.wrapper}>
+          <label htmlFor="email">이메일</label>
+          <input
+            type="email"
+            id="email"
+            value={email}
+            onChange={handleEmailChange}
+            placeholder="이메일을 입력해주세요."
+          />
+        </div>
+        <div className={styles.wrapper}>
+          <label htmlFor="password">비밀번호</label>
+          <input
+            type="password"
+            id="password"
+            value={password}
+            onChange={handlePasswordChange}
+            placeholder="비밀번호를 입력해주세요."
+          />
+        </div>
+        <button className={styles.login_button} type="submit" onClick={handleLogin}>
+          로그인
         </button>
-        <button type="button" onClick={() => navigate('/join')}>
-          Sign Up
+        <button className={styles.join_button} type="button" onClick={() => navigate('/join')}>
+          회원가입
         </button>
       </form>
     </div>
