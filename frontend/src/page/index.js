@@ -15,5 +15,5 @@ export { Faq } from './Faq';
 export { Login } from './Login';
 export { Join } from './Join';
 export { MyPage } from './MyPage';
-export { LawyerMain } from './LawyerMain';
-export { LawyerProfile } from './LawyerProfile';
+export { LawyerMain } from './Lawyer';
+export { LawyerProfile } from './LawyerDetail';

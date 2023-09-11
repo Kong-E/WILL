@@ -1,0 +1,116 @@
+.container {
+  width: 239px;
+  height: 365px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-shrink: 0;
+  border-radius: 15px;
+  border: 1px solid #EEEDF1;
+  background: #fff;
+  box-shadow: 0px 0px 40px 0px rgba(0, 0, 0, 0.10);
+}
+
+.name {
+  color: #2E2E30;
+  font-family: Noto Sans CJK KR;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  margin-bottom: -5px;
+}
+
+.info {
+  color: #898394;
+  font-family: Noto Sans CJK KR;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin-top: 4px;
+  text-align: center;
+}
+.info2 {
+  color: #898394;
+  font-family: Noto Sans CJK KR;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin-top: -13px;
+  text-align: center;
+}
+
+.text {
+  color: #2E2E30;
+  font-family: Noto Sans CJK KR;
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 400;
+  margin-left: 3px;
+}
+
+.image {
+  width: 131px;
+  height: 131px;
+  flex-shrink: 0;
+  border-radius: 65.5px;
+  background: lightgray 0px 0px / 100% 200% no-repeat;
+  margin-top: 28px;
+  margin-bottom: -10px;
+
+}
+
+.put {
+  width: 180px;
+    height: 35px;
+    background-color: black;
+    border-radius: 20px;
+    margin-bottom:10px;
+}
+
+.pushing {
+  color: #ffffff;
+    font-family: Noto Sans CJK KR;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    margin-left: 60px;
+    margin-top: 6px;
+
+}
+
+.bookmarkButton {
+  width: 30px;
+  height: 30px;
+  border: None;
+  background-color: transparent;
+  cursor: pointer;
+  position: relative;
+  margin-left:170px;
+  margin-top:20px;
+  margin-bottom:-40px;
+  /* 추가된 부분 */
+}
+
+.bookmarkIcon::before {
+  content: '\2302';
+  font-size: 30px;
+  color: #9a9a9a;
+  /* 눌리지 않았을 때의 색상 (흰색) */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(180deg);
+}
+
+.bookmarkButton:hover .bookmarkIcon::before {
+  color: #fffb10;
+  /* 마우스를 올렸을 때의 색상 (검은색) */
+}
+
+.bookmarked .bookmarkIcon::before {
+  color: #fffb10;
+  /* 눌렸을 때의 색상 (검은색) */
+}

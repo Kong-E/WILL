@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styles from './Writing7.module.scss';
 import Image from './component/순서도.PNG';
 import DatePicker from 'react-datepicker';

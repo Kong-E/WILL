@@ -81,7 +81,7 @@ export const Home = () => {
           법률적 고민을 해결하세요.
         </p>
         <div className={styles.lawyerContainer}>
-          <Lawyer index={1} />
+          <Lawyer index={0} />
           <Lawyer index={1} />
           <Lawyer index={2} />
           <Lawyer index={3} />
