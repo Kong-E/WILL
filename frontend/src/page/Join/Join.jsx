@@ -89,9 +89,9 @@ export const Join = () => {
             placeholder="비밀번호를 다시 입력해주세요."
           />
         </div>
-        {passwordConfirm.length !== 0 && password !== passwordConfirm && (
-          <span className={styles.password_confirm}>비밀번호가 일치하지 않습니다.</span>
-        )}
+        <span className={styles.password_confirm}>
+          {passwordConfirm.length !== 0 && password !== passwordConfirm && '비밀번호가 일치하지 않습니다.'}
+        </span>
         <div className={styles.wrapper}>
           <label htmlFor="nickname">닉네임</label>
           <input
