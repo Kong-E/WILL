@@ -1,1 +1,0 @@
-export { LawyerMain } from "./LawyerMain";
