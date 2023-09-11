@@ -2,6 +2,8 @@ export { Home } from './Home';
 export { Intro } from './Intro';
 export { Searching } from './Searching';
 export { SearchResultFail } from './SearchResultFail';
+export { SearchResultSuccess } from './SearchResultSuccess';
+export { SearchComplete } from './SearchComplete';
 export { Writing1 } from './Writing1';
 export { Writing2 } from './Writing2';
 export { Writing3 } from './Writing3';

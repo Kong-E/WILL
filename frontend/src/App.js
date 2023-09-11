@@ -7,6 +7,8 @@ import {
   Intro,
   Searching,
   SearchResultFail,
+  SearchResultSuccess,
+  SearchComplete,
   Writing1,
   Writing2,
   Writing3,
@@ -38,6 +40,8 @@ const App = () => {
           <Route path="/intro" element={<Intro />} />
           <Route path="/searching" element={<Searching />} />
           <Route path="/searchResultFail" element={<SearchResultFail />} />
+          <Route path="/searchResultSuccess" element={<SearchResultSuccess />} />
+          <Route path="/searchComplete" element={<SearchComplete />} />
           <Route path="/writing1" element={isLogin ? <Writing1 /> : <Navigate to="/login" />} />
           <Route path="/writing2" element={isLogin ? <Writing2 /> : <Navigate to="/login" />} />
           <Route path="/writing3" element={isLogin ? <Writing3 /> : <Navigate to="/login" />} />
