@@ -24,11 +24,10 @@ export const SearchResultFail = () => {
         </div>
       </form>
       <div className={styles.result_container}>
-
         <img className="img" alt="Image" src="images/searchFail.png" />
-        <div className={styles.title} style={{ fontSize: '25px', marginTop:'30px'}}>
+        <div className={styles.title} style={{ fontSize: '25px', marginTop: '30px' }}>
           작성된 유언장이 없습니다.
-        </div>        
+        </div>
         <button className={styles.search_button} onClick={() => navigate('/searching')}>
           다시 검색하기
         </button>

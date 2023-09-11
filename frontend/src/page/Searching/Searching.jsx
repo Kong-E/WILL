@@ -18,15 +18,13 @@ export const Searching = () => {
   };
 
   const handleSave = () => {
-    // 여기에서 주민번호 `code`를 활용하거나 저장할 수 있습니다.
-    console.log('주민번호:', code);
     sessionStorage.setItem('name', name);
     sessionStorage.setItem('code', code);
-    // 주민번호와 이름을 검사하여 존재하면 성공 페이지 이동
+    // 보안코드와 이름을 검사하여 존재하면 성공 페이지 이동
     if (name && code) {
-      navigate('/searchResultSuccess', { state: { name, code } });
+      navigate('/searchResultSuccess');
     } else {
-      navigate('/searchResultFail', { state: { name, code } });
+      navigate('/searchResultFail');
     }
   };
 
