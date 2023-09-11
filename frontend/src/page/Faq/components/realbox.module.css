@@ -1,0 +1,40 @@
+.nobox1 {
+    width: 130px;
+    margin-right: 2px;
+    text-align: center;
+    line-height: 65px;
+    color: rgb(0, 0, 0);
+}
+
+.contentbox1 {
+    width: 800px;
+    margin-right: 2px;
+    text-align: center;
+    line-height: 65px;
+    color: rgb(0, 0, 0);
+}
+
+.timebox1 {
+    width: 130px;
+    margin-right: 2px;
+    text-align: center;
+    line-height: 65px;
+    color: rgb(0, 0, 0);
+}
+
+.viewbox1 {
+    width: 130px;
+    margin-right: 2px;
+    text-align: center;
+    line-height: 65px;
+    color: rgb(0, 0, 0);
+}
+
+.realbox {
+    width: 1050px;
+    background-color: rgb(255, 255, 255);
+    height: 65px;
+    display: flex;
+    flex-direction: row;
+    border-bottom: 1px solid rgb(118, 118, 118);
+}

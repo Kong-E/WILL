@@ -59,7 +59,7 @@ export const Join = () => {
         <input type="email" id="email" name="email" value={email} onChange={handleEmailChange} />
         <label htmlFor="password">비밀번호</label>
         <input type="password" id="password" name="password" value={password} onChange={handlePasswordChange} />
-        <label htmlFor="password">비밀번호 확인</label>
+        <label htmlFor="password">비밀번호 재확인</label>
         <input
           type="password"
           id="password"
