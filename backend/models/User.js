@@ -20,7 +20,7 @@ const UserSchema = new mongoose.Schema(
       type: String,
       default: '',
     },
-    hash: {
+    txHash: {
       type: String,
       default: '',
     },

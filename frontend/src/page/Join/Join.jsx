@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import styles from './Join.module.scss';
 import instance from '../../api/axios';
+import { useNavigate } from 'react-router';
 
 export const Join = () => {
   const [email, setEmail] = useState('');
@@ -8,6 +9,7 @@ export const Join = () => {
   const [passwordConfirm, setPassowrdConfirm] = useState('');
   const [username, setUserName] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
+  const navigate = useNavigate();
 
   const handleEmailChange = e => {
     setEmail(e.target.value);
@@ -46,8 +48,11 @@ export const Join = () => {
         },
       );
       console.log('회원가입 성공:', response.data);
+      alert('회원가입이 완료되었습니다.');
+      navigate('/login');
     } catch (error) {
       console.log('회원가입 실패:', error);
+      alert('회원가입에 실패했습니다.');
     }
   };
 
