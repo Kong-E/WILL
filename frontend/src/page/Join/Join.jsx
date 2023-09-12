@@ -84,10 +84,10 @@ export const Join = () => {
           />
         </div>
         <div className={styles.wrapper}>
-          <label htmlFor="password">비밀번호 확인</label>
+          <label htmlFor="password_confirm">비밀번호 확인</label>
           <input
             type="password"
-            id="password"
+            id="password_confirm"
             name="password"
             value={passwordConfirm}
             onChange={handlePasswordConfirmChange}
