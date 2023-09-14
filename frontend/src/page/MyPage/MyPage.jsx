@@ -1,9 +1,9 @@
-import { Root } from './styled';
 import { useRecoilValue } from 'recoil';
 import { UserState } from '../../stores/login-store';
 import React, { useState, useEffect, useMemo } from 'react';
 import Web3 from 'web3';
 import instance from 'api/axios';
+import styles from './MyPage.module.scss';
 
 export const MyPage = () => {
   const user = useRecoilValue(UserState);
@@ -51,11 +51,13 @@ export const MyPage = () => {
   }, []);
 
   return (
-    <Root>
-      {user ? <div>{user.username}님 환영합니다.</div> : <div>로그인이 필요합니다.</div>}
+    <div className={styles.will_textarea}>
+      <div className={styles.will_title}>{user.username}님의 유언장</div>
       <div>{params[2]}</div>
-      <div>{params[3]}</div>
+      <a href={`https://ipfs.io/ipfs/${params[3]}`} target="_blank" rel="noopener noreferrer">
+        녹음 URL
+      </a>
       <div>{params[4]}</div>
-    </Root>
+    </div>
   );
 };

@@ -1,25 +1,26 @@
 import React, { useState } from 'react';
 import styles from './SearchResultSuccess.module.scss';
 import { useNavigate } from 'react-router';
+import { useRecoilState, useRecoilValue } from 'recoil';
+import { ParamsState, TxHashState } from 'stores/search-store';
 
 export const SearchResultSuccess = () => {
-  const name = sessionStorage.getItem('name');
-  const code = sessionStorage.getItem('code');
+  const [txHash, setTxHash] = useRecoilState(TxHashState);
   const navigate = useNavigate();
 
   return (
     <div className={styles.container}>
       <form className={styles.search_container}>
-        <div className={styles.wrapper}>
+        {/* <div className={styles.wrapper}>
           <div className={styles.title}>이름</div>
           <div className={styles.text} style={{ marginLeft: '77.46px' }}>
             {name}
           </div>
-        </div>
+        </div> */}
         <div className={styles.wrapper}>
           <div className={styles.title}>보안코드</div>
           <div className={styles.text} style={{ marginLeft: '44.46px' }}>
-            {code}
+            {txHash}
           </div>
         </div>
       </form>

@@ -1,12 +1,11 @@
 import { atom, selector } from 'recoil';
 
-export const nameState = atom({
-  key: 'nameState',
+export const TxHashState = atom({
+  key: 'txHashState',
   default: '',
 });
 
-export const codeState = atom({
-  key: 'codeState',
-  default: '',
+export const ParamsState = atom({
+  key: 'paramsState',
+  default: {},
 });
-

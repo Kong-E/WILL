@@ -110,7 +110,7 @@ export const Nav = () => {
         </p>
         {loginState && (
           <p className={styles.text} onClick={() => navigate('/mypage')}>
-            마이페이지
+            나의 유언장
           </p>
         )}
         {loginState ? (
