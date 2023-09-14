@@ -1,11 +1,16 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from './SearchComplete.module.scss';
 import { useNavigate } from 'react-router';
 import { useRecoilState } from 'recoil';
-import { ParamsState } from 'stores/search-store';
+import { ParamsState, TxHashState } from 'stores/search-store';
 
 export const SearchComplete = () => {
+  const [txHash, setTxHash] = useRecoilState(TxHashState);
   const [params, setParams] = useRecoilState(ParamsState);
+
+  useEffect(() => {
+    setTxHash('');
+  }, []);
 
   return (
     <div className={styles.will_textarea}>
