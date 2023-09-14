@@ -22,6 +22,7 @@
 .selected_text {
   composes: text; /* This imports styles from .text */
   color: #2e2e30;
+  font-weight: bold;
 }
 
 .login_text {

@@ -1,6 +1,6 @@
 import React, { useEffect, useMemo } from 'react';
 import styles from './Nav.module.css';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { useRecoilState, useSetRecoilState } from 'recoil';
 import { UserState, LoginState } from '../../stores/login-store';
 
@@ -10,6 +10,7 @@ export const Nav = () => {
   let token = useMemo(() => localStorage.getItem('token'), []);
 
   const navigate = useNavigate();
+  const location = useLocation().pathname;
 
   const handleLogout = () => {
     // 로그아웃할건지 물어보기
@@ -93,23 +94,33 @@ export const Nav = () => {
         </span>
       </p>
       <div className={styles.bannerContainer}>
-        <p className={styles.text} onClick={() => navigate('/')}>
+        <p className={`${styles.text} ${location === '/' && styles.selected_text}`} onClick={() => navigate('/')}>
           서비스 소개
         </p>
-        <p className={styles.text} onClick={() => navigate('/writing1')}>
+        <p
+          className={`${styles.text} ${location.includes('/writing') && styles.selected_text}`}
+          onClick={() => navigate('/writing1')}>
           유언장 작성하기
         </p>
-        <p className={styles.text} onClick={() => navigate('/searching')}>
+        <p
+          className={`${styles.text} ${location === '/searching' && styles.selected_text}`}
+          onClick={() => navigate('/searching')}>
           유언장 찾기
         </p>
-        <p className={styles.text} onClick={() => navigate('/lawyerMain')}>
+        <p
+          className={`${styles.text} ${location.includes('/lawyer') && styles.selected_text}`}
+          onClick={() => navigate('/lawyerMain')}>
           변호사 알아보기
         </p>
-        <p className={styles.text} onClick={() => navigate('/faq')}>
+        <p
+          className={`${styles.text} ${location.includes('/faq') && styles.selected_text}`}
+          onClick={() => navigate('/faq')}>
           법률 문의 게시판
         </p>
         {loginState && (
-          <p className={styles.text} onClick={() => navigate('/mypage')}>
+          <p
+            className={`${styles.text} ${location === '/mypage' && styles.selected_text}`}
+            onClick={() => navigate('/mypage')}>
             나의 유언장
           </p>
         )}
