@@ -103,7 +103,7 @@ export const Nav = () => {
           유언장 작성하기
         </p>
         <p
-          className={`${styles.text} ${location === '/searching' && styles.selected_text}`}
+          className={`${styles.text} ${location.includes('/search') && styles.selected_text}`}
           onClick={() => navigate('/searching')}>
           유언장 찾기
         </p>
