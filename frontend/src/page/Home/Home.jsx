@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import styles from './Home.module.css';
 import { Lawyer } from './Lawyer';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 export const Home = () => {
+  const navigate = useNavigate();
+
   const handleClick = () => {
     // 버튼 클릭 시 이동만 처리한 후 이벤트를 중지합니다.
     return false;
@@ -114,14 +116,10 @@ export const Home = () => {
         <p
           className={styles.text}
           style={{ fontSize: '24px', fontWeight: '500', position: 'absolute', marginTop: '251px', color: '#F4F4F4' }}>
-          이름, 주민등록번호를 통해 유언장의 유무를 검색하실 수 있고
-          <br />
-          별세 전담변호사를 통해 확인절차를 거친 뒤,
-          <br />
-          법률문서로 유언장을 찾으실 수 있습니다.
+          전달 받은 보안코드를 통해 유언장을 찾으실 수 있습니다.
         </p>
         <Link to="./Searching">
-          <button className={styles.button} style={{ marginTop: '429px' }}>
+          <button className={styles.button} style={{ marginTop: '350px' }} onClick={() => navigate('/searching')}>
             <p className={styles.text} style={{ fontSize: '28px', fontWeight: '700', color: '#000' }}>
               유언장 찾기
             </p>
