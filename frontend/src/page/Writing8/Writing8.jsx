@@ -8,12 +8,23 @@ import { WillState } from 'stores/will-store';
 import { UserState } from 'stores/login-store';
 import { create as ipfsHttpClient } from 'ipfs-http-client';
 import instance from 'api/axios';
+import CryptoJS from 'crypto-js';
+
+// 현재 시각을 서울을 기준으로 설정
+const today = new Date();
+const year = today.getFullYear();
+const month = today.getMonth() + 1;
+const date = today.getDate();
+const hour = today.getHours();
+const minute = today.getMinutes();
+const second = today.getSeconds();
+const nowDate = `${year}-${month}-${date} ${hour}:${minute}:${second}`;
 
 export const Writing8 = () => {
   const navigate = useNavigate();
 
   const [transactionStatus, setTransactionStatus] = useState(null);
-  const [web3, setWeb3] = useState(null);
+  // const [web3, setWeb3] = useState(null);
   const [willState, setWillState] = useRecoilState(WillState);
   const userState = useRecoilValue(UserState);
   const [ipfs, setIpfs] = useState(null);
@@ -66,7 +77,7 @@ export const Writing8 = () => {
 
       // 스마트 컨트랙트 ABI 및 주소 가져오기
       const contractAbi = Will.abi;
-      const contractAddress = '0x951071b3a1224b0C85d7807b7c4508880953d826'; // 스마트 컨트랙트 주소로 대체
+      const contractAddress = '0xd9145CCE52D386f254917e481eB44e9943F39138'; // 스마트 컨트랙트 주소로 대체
 
       // 스마트 컨트랙트 인스턴스 생성
       const contractInstance = new web3.eth.Contract(contractAbi, contractAddress);
@@ -77,20 +88,25 @@ export const Writing8 = () => {
       const will = willState.will;
       const audioHash = willState.ipfsHash;
 
-      console.log(audioHash);
+      const combinedData = `${userState.email}${userState.username}${willState.will}${ipfsHash}${nowDate}`;
+      const sha256Hash = CryptoJS.SHA256(combinedData).toString();
+
+      console.log(sha256Hash);
 
       // 트랜잭션 데이터 및 설정
-      const fromAddress = '0x86948078a2bC9A367DE4c1E24E9E8573f09cF20b'; // 원하는 주소로 대체 가능
-      const gasPrice = web3.utils.toWei('10', 'gwei');
+      const fromAddress = '0x86948078a2bC9A367DE4c1E24E9E8573f09cF20b'; // 운영자 지갑 주소
+      const gasPrice = web3.utils.toWei('20', 'gwei');
 
       // 스마트 컨트랙트 함수 호출
-      const result = await contractInstance.methods.setWill(email, username, will, audioHash).send({
-        from: fromAddress,
-        value: 0,
-        gas: 1000000,
-        gasPrice: gasPrice,
-        to: contractAddress,
-      });
+      const result = await contractInstance.methods
+        .setWill(email, username, will, audioHash, nowDate, sha256Hash)
+        .send({
+          from: fromAddress,
+          value: 0,
+          gas: 2000000,
+          gasPrice: gasPrice,
+          to: contractAddress,
+        });
 
       // 트랜잭션 성공 시 처리
       console.log('트랜잭션 성공:', result);
@@ -98,7 +114,6 @@ export const Writing8 = () => {
     } catch (error) {
       // 트랜잭션 에러 처리
       console.error('트랜잭션 에러:', error);
-      setTransactionStatus(`트랜잭션 에러: ${error.message}`);
     }
   };
 
@@ -120,6 +135,7 @@ export const Writing8 = () => {
   };
 
   useEffect(() => {
+    setTransactionStatus(null);
     ipfsUpload();
   }, []);
 
@@ -136,7 +152,7 @@ export const Writing8 = () => {
   }, [ipfsHash]);
 
   useEffect(() => {
-    if (transactionStatus) {
+    if (transactionStatus !== null) {
       postTxHash();
       navigate('/writing9');
     }

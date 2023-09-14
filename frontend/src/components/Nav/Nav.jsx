@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useMemo } from 'react';
+import React, { useEffect, useMemo } from 'react';
 import styles from './Nav.module.css';
 import { useNavigate } from 'react-router-dom';
 import { useRecoilState, useSetRecoilState } from 'recoil';
@@ -93,13 +93,26 @@ export const Nav = () => {
         </span>
       </p>
       <div className={styles.bannerContainer}>
-        <p className={styles.text} onClick={() => navigate('/')}>서비스 소개</p>
+        <p className={styles.text} onClick={() => navigate('/')}>
+          서비스 소개
+        </p>
         <p className={styles.text} onClick={() => navigate('/writing1')}>
           유언장 작성하기
         </p>
-        <p className={styles.text} onClick={() => navigate('/searching')}>유언장 찾기</p>
-        <p className={styles.text}  onClick={() => navigate('/lawyerMain')}>변호사 알아보기</p>
-        <p className={styles.text}onClick={() => navigate('/faq')}>법률 문의 게시판</p>
+        <p className={styles.text} onClick={() => navigate('/searching')}>
+          유언장 찾기
+        </p>
+        <p className={styles.text} onClick={() => navigate('/lawyerMain')}>
+          변호사 알아보기
+        </p>
+        <p className={styles.text} onClick={() => navigate('/faq')}>
+          법률 문의 게시판
+        </p>
+        {loginState && (
+          <p className={styles.text} onClick={() => navigate('/mypage')}>
+            마이페이지
+          </p>
+        )}
         {loginState ? (
           <button className={styles.button} onClick={handleLogout}>
             <p className={styles.login_text}>로그아웃</p>

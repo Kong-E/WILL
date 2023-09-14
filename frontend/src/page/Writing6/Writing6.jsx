@@ -4,7 +4,7 @@ import { PageNavigation, Progress } from 'components';
 import { useRecoilState, useRecoilValue } from 'recoil';
 import { WillState } from 'stores/will-store';
 
-const mimeType = 'audio/webm';
+const mimeType = 'audio/mp3';
 
 export const Writing6 = () => {
   const [willState, setWillState] = useRecoilState(WillState);
