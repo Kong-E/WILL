@@ -18,6 +18,25 @@ router.get('/', authenticateToken, async (req, res) => {
   }
 });
 
+// GET txHash
+router.get('/txHash', authenticateToken, async (req, res) => {
+  const userId = req.user.id;
+
+  try {
+    // 사용자를 데이터베이스에서 찾습니다.
+    const user = await User.findById(userId);
+
+    if (!user) {
+      return res.status(404).json({ error: '사용자를 찾을 수 없습니다.' });
+    }
+
+    // txHash를 반환합니다.
+    return res.status(200).json({ txHash: user.txHash });
+  } catch (error) {
+    return res.status(500).json({ error: '서버 오류가 발생했습니다.' });
+  }
+});
+
 // PUT /api/users/:userId/updateTxHash
 router.put('/updateTxHash', authenticateToken, async (req, res) => {
   const userId = req.user.id;

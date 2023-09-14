@@ -11,7 +11,7 @@ export const MyPage = () => {
   const [params, setParams] = useState({});
 
   // Ethereum 네트워크 연결
-  const web3 = new Web3('http://127.0.0.1:7545'); // Ethereum 네트워크 RPC URL로 대체
+  const web3 = new Web3('http://127.0.0.1:8545'); // Ethereum 네트워크 RPC URL로 대체
 
   const token = useMemo(() => localStorage.getItem('token'), []);
 
@@ -53,11 +53,17 @@ export const MyPage = () => {
   return (
     <div className={styles.will_textarea}>
       <div className={styles.will_title}>{user.username}님의 유언장</div>
-      <div>{params[2]}</div>
-      <a href={`https://ipfs.io/ipfs/${params[3]}`} target="_blank" rel="noopener noreferrer">
-        녹음 URL
-      </a>
-      <div>{params[4]}</div>
+      {params[0] ? (
+        <>
+          <div>{params[2]}</div>
+          <a href={`https://ipfs.io/ipfs/${params[3]}`} target="_blank" rel="noopener noreferrer">
+            녹음 URL
+          </a>
+          <div>{params[4]}</div>
+        </>
+      ) : (
+        <div>유언장을 찾을 수 없습니다.</div>
+      )}
     </div>
   );
 };

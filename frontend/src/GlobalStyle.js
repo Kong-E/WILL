@@ -29,7 +29,7 @@ const GlobalStyle = createGlobalStyle`
 
   /* 스크롤바 막대 꾸미기 */
   body::-webkit-scrollbar-thumb {
-    background-color: #e5e7eb;
+    background-color: #CBC8CF;
     border-radius: 10px;
   }
 
@@ -48,12 +48,24 @@ const GlobalStyle = createGlobalStyle`
     /* border: none;
     outline: none; */
     font-family: "Noto Sans KR", "Inter", "sans-serif";
+    resize: none;
+    text-indent: 0;
     /* font-weight: 500; */
     &:focus {
       outline: none;
     }
     &::placeholder {
       color: #94a3b8;
+    }
+    &::-webkit-scrollbar {
+      width: 5px;
+    }
+    &::-webkit-scrollbar-thumb {
+      background-color: #CBC8CF;
+      border-radius: 10px;
+    }
+    &::-webkit-scrollbar-track {
+      background-color: transparent;
     }
   }
 

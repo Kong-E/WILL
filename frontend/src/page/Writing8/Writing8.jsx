@@ -73,7 +73,7 @@ export const Writing8 = () => {
   const handleSaveToBlockchain = async () => {
     try {
       // Ethereum 네트워크 연결
-      const web3 = new Web3('http://127.0.0.1:7545'); // Ethereum 네트워크 RPC URL로 대체
+      const web3 = new Web3('http://127.0.0.1:8545'); // Ethereum 네트워크 RPC URL로 대체
 
       // 스마트 컨트랙트 ABI 및 주소 가져오기
       const contractAbi = Will.abi;
@@ -94,7 +94,7 @@ export const Writing8 = () => {
       console.log(sha256Hash);
 
       // 트랜잭션 데이터 및 설정
-      const fromAddress = '0x86948078a2bC9A367DE4c1E24E9E8573f09cF20b'; // 운영자 지갑 주소
+      const fromAddress = '0xF76c9B7012c0A3870801eaAddB93B6352c8893DB'; // 운영자 지갑 주소
       const gasPrice = web3.utils.toWei('20', 'gwei');
 
       // 스마트 컨트랙트 함수 호출

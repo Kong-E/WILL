@@ -61,7 +61,7 @@ export const Q2 = () => {
 
   const handleCommentChange = e => {
     const updatedComment = e.target.value;
-    setComment(updatedComment);       
+    setComment(updatedComment);
     setWillState(prevWillState => ({
       ...prevWillState,
       grave: {
@@ -93,7 +93,7 @@ export const Q2 = () => {
         <textarea
           className={styles.hope_container}
           placeholder="희망사항을 남겨주세요"
-          value={comment || willState.grave.comment}
+          value={comment || willState.grave.note}
           onChange={handleCommentChange}
         />
       </div>

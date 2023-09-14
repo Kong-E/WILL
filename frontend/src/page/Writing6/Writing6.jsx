@@ -3,11 +3,19 @@ import styles from './Writing6.module.scss';
 import { PageNavigation, Progress } from 'components';
 import { useRecoilState, useRecoilValue } from 'recoil';
 import { WillState } from 'stores/will-store';
+import { UserState } from 'stores/login-store';
 
 const mimeType = 'audio/mp3';
 
+// 현재 시각을 서울을 기준으로 설정
+const today = new Date();
+const year = today.getFullYear();
+const month = today.getMonth() + 1;
+const date = today.getDate();
+
 export const Writing6 = () => {
   const [willState, setWillState] = useRecoilState(WillState);
+  const userState = useRecoilValue(UserState);
   const [permission, setPermission] = useState(false);
   const mediaRecorder = useRef(null);
   const [recordingStatus, setRecordingStatus] = useState('inactive');
@@ -68,14 +76,20 @@ export const Writing6 = () => {
   };
 
   const updateWillNote = useCallback(() => {
+    // 합칠 요소들을 줄바꿈 문자()으로 연결하여 will 변수에 할당
+    const willNote = `${willState.funeral.selected}
+  ${willState.funeral.note}
+  ${willState.grave.selected}
+  ${willState.grave.note}
+  ${willState.lifeSupport.selected}
+  ${willState.organDonation.selected}
+  ${willState.inheritance.selected}
+  ${willState.inheritance.note}
+  ${willState.plus}`;
+
     setWillState(prevState => ({
       ...prevState,
-      will: `${willState.funeral.selected} ${willState.funeral.note} ${willState.grave.selected} 
-         ${willState.grave.note} ${willState.lifeSupport.selected} 
-         ${willState.organDonation.selected} 
-         ${willState.inheritance.selected} 
-         ${willState.inheritance.note} 
-         ${willState.plus}`,
+      will: willNote,
     }));
   }, [willState]);
 
@@ -127,13 +141,40 @@ export const Writing6 = () => {
               </a> */}
             </>
           )}
-          <div className={styles.text}>녹음이 시작되면 유언장 내용을 읽어주세요.</div>
+          <div className={styles.record_information}>녹음이 시작되면 유언장 내용을 읽어주세요.</div>
+          <div className={styles.record_information}>유언자의 증인은 유언장 내용의 마지막 문단을 읽어주세요.</div>
         </div>
         <div className={styles.will_textarea}>
-          <div>{willState.will}</div>
+          <div>
+            저는 {userState.username}입니다. 오늘은 {year}년 {month}월 {date}일입니다. 나의 취지는 이 세상을 떠남으로써
+            내 사랑과 감사를 표현하고, 내 가족과 사랑하는 모든 사람들에게 힘과 위로를 전하는 것입니다.
+          </div>
+          <br />
+          <div>{willState.plus}</div>
+          <br />
+          <div>저는 {willState.funeral.selected}을 원합니다.</div>
+          <div>{willState.funeral.note}</div>
+          <br />
+          <div>저는 {willState.grave.selected}을 원합니다.</div>
+          <div>{willState.grave.note}</div>
+          <br />
+          <div>저는 {willState.lifeSupport.selected}</div>
+          <br />
+          <div>저는 {willState.organDonation.selected}</div>
+          <br />
+          <div>저는 {willState.inheritance.selected}을 원합니다.</div>
+          <div>{willState.inheritance.note}</div>
+          <br />
+          <div>
+            저는 유언자의 증인 ○○○입니다. 유언자 {userState.username}의 유언이 정확함을 확인합니다. 유언내용은{' '}
+            {willState.funeral.selected}, {willState.grave.selected}, {willState.inheritance.selected}을 원한다는
+            것입니다.
+          </div>
         </div>
         <PageNavigation nextPath="/writing7" />
-        <div className={styles.date_text}>작성일자 서기 YYYY년 MM월 DD일</div>
+        <div className={styles.date_text}>
+          작성일자 서기 {year}년 {month}월 {date}일
+        </div>
       </div>
     </>
   );

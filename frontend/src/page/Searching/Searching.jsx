@@ -12,7 +12,7 @@ export const Searching = () => {
   const navigate = useNavigate();
 
   // Ethereum 네트워크 연결
-  const web3 = new Web3('http://127.0.0.1:7545'); // Ethereum 네트워크 RPC URL로 대체
+  const web3 = new Web3('http://127.0.0.1:8545'); // Ethereum 네트워크 RPC URL로 대체
 
   const getTransaction = async () => {
     try {

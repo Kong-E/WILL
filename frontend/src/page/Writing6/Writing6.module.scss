@@ -36,6 +36,16 @@
   margin: 10px 0;
 }
 
+.record_information {
+  color: var(--gray800, #675f5f);
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  display: flex;
+  justify-content: center;
+}
+
 .legal_effect_wrapper {
   display: flex;
   align-items: center;
@@ -151,7 +161,7 @@
 }
 
 .audio {
-  margin-top: 15px;
+  margin: 15px 0;
 
   &.active {
     outline: none;
