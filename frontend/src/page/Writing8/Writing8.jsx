@@ -9,6 +9,7 @@ import { UserState } from 'stores/login-store';
 import { create as ipfsHttpClient } from 'ipfs-http-client';
 import instance from 'api/axios';
 import CryptoJS from 'crypto-js';
+// const ganache = require('ganache');
 
 // 현재 시각을 서울을 기준으로 설정
 const today = new Date();
@@ -29,6 +30,7 @@ export const Writing8 = () => {
   const userState = useRecoilValue(UserState);
   const [ipfs, setIpfs] = useState(null);
   const [ipfsHash, setIpfsHash] = useState(null);
+  const [accounts, setAccounts] = useState(null);
 
   const token = useMemo(() => localStorage.getItem('token'), []);
 
@@ -93,8 +95,14 @@ export const Writing8 = () => {
 
       console.log(sha256Hash);
 
+      // accounts 가져오기
+      const accounts = await web3.eth.getAccounts();
+      setAccounts(accounts);
+
+      console.log('계정 : ', accounts);
+
       // 트랜잭션 데이터 및 설정
-      const fromAddress = '0xF76c9B7012c0A3870801eaAddB93B6352c8893DB'; // 운영자 지갑 주소
+      const fromAddress = accounts[0]; // 운영자 지갑 주소
       const gasPrice = web3.utils.toWei('20', 'gwei');
 
       // 스마트 컨트랙트 함수 호출
@@ -135,6 +143,7 @@ export const Writing8 = () => {
   };
 
   useEffect(() => {
+    // getGanacheAccount();
     setTransactionStatus(null);
     ipfsUpload();
   }, []);
