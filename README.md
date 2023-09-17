@@ -16,6 +16,7 @@
 <img src="https://github.com/DGU-ChainWave/WILL/assets/87259219/f6002369-7f61-408b-9b90-6ade1182b374" width="720px"/>
 <img src="https://github.com/DGU-ChainWave/WILL/assets/87259219/e09a9ec8-2652-464a-a336-8bb45156694f" width="720px"/>
 <br/>
+<br/>
 
 > **프로젝트 목표**
 
@@ -29,10 +30,9 @@ https://github.com/DGU-ChainWave/WILL/assets/87259219/175c3a4e-3753-4d77-9fe9-a5
 <br/>
 
 ## 프로젝트 구조도
-<br/>
-<img src="https://github.com/g2Min/DingDong_T5/assets/87259219/1d4d3bed-288d-4bd2-bc79-5e31f3b32c0a" width="700px" />
-<br/>
-<br/>
+
+![image](https://github.com/DGU-ChainWave/WILL/assets/87259219/e8a31913-3f95-4590-8af7-a0a15a0fb8a4)
+
 
 ## 패키지설치
 - backend
